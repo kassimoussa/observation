@@ -26,14 +26,14 @@ Route::post('store', [UserController::class, 'store'])->name('store');
 
  
 Route::group(['middleware' => ['logged']], function () {
-    Route::get('/degrevement/index',  [UserController::class, 'index']); 
-    Route::get('/degrevement/logout', [UserController::class, 'logout']);
-    Route::get('/degrevement/profile', [UserController::class, 'profile']);
+    Route::get('index',  [UserController::class, 'index']); 
+    Route::get('logout', [UserController::class, 'logout']);
+    Route::get('profile', [UserController::class, 'profile']);
     Route::put('change_infos/{user}', [UserController::class, 'change_infos']);
     Route::put('change_pass/{user}', [UserController::class, 'change_pass']);
 
     Route::get('voirfiche/{id}', [FicheController::class, 'voir']);
-    Route::get('/degrevement/newfiche', [FicheController::class, 'create']);
+    Route::get('newfiche', [FicheController::class, 'create']);
     Route::post('store', [FicheController::class, 'store']);
     Route::get('show/{fiche}', [FicheController::class, 'show']);
     Route::get('edit/{fiche}', [FicheController::class, 'edit']);

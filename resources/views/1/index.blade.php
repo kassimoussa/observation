@@ -4,7 +4,7 @@
     <div class="row  py-3 px-3">
         <div class="d-flex justify-content-between mb-4 ">
             <h3 class="over-title ">Fiches d'Observation </h3>
-            <a href="/degrevement/newfiche" class="btn   btn-primary  fw-bold">Nouvelle Fiche</a>
+            <a href="newfiche" class="btn   btn-primary  fw-bold">Nouvelle Fiche</a>
         </div>
 
         @if ($message = Session::get('success'))
