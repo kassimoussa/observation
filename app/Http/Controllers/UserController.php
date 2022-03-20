@@ -42,7 +42,6 @@ class UserController extends Controller
 
     public function logout()
     {
-
         session()->flush();
         return redirect('/');
     }

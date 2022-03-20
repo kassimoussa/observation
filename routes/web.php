@@ -26,9 +26,9 @@ Route::post('store', [UserController::class, 'store'])->name('store');
 
  
 Route::group(['middleware' => ['logged']], function () {
-    Route::get('index',  [UserController::class, 'index']); 
+    Route::get('/index',  [UserController::class, 'index']); 
     Route::get('/logout', [UserController::class, 'logout']);
-    Route::get('profile', [UserController::class, 'profile']);
+    Route::get('/profile', [UserController::class, 'profile']);
     Route::put('change_infos/{user}', [UserController::class, 'change_infos']);
     Route::put('change_pass/{user}', [UserController::class, 'change_pass']);
 
