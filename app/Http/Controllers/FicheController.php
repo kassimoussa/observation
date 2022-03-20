@@ -64,4 +64,11 @@ class FicheController extends Controller
         /* $fiche->update(['status' => $request->new_password]); */
         return redirect('index')->with('success', 'Modification réussie');
     }
+
+    public function destroy(Fiche $fiche)
+    {
+        $fiche->delete();
+
+        return back()->with('success', 'Fiche supprimée');
+    }
 }

@@ -38,6 +38,7 @@ Route::group(['middleware' => ['logged']], function () {
     Route::get('show/{fiche}', [FicheController::class, 'show']);
     Route::get('edit/{fiche}', [FicheController::class, 'edit']);
     Route::put('update/{fiche}', [FicheController::class, 'update']);
+    Route::delete('delete_fiche/{fiche}', [FicheController::class, 'destroy']);
     Route::get('fiche_pdf/{fiche}', [FicheController::class, 'pdf']);
     Route::get('dash',  [UserController::class, 'dash']);
 

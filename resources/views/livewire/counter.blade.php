@@ -42,7 +42,7 @@
                                 $bg = 'danger';
                             }
                         @endphp
-                        <tr data-href="show/{{ $fiche->id }}">
+                        <tr>
                             <td>{{ $fiche->id }}</td>
                             <td>{{ $fiche->nom_client }}</td>
                             <td>{{ $fiche->num_facture }}</td>
@@ -60,7 +60,18 @@
                                     data-bs-placement="bottom" title="Modifier la fiche ">
                                     <i class="fas fa-edit"></i>
                                 </a>
+                                
                                 @endif
+
+                                <form action="{{  url('delete_fiche', $fiche) }}" method="post" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="button" class="btn btn-link" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" title="Supprimer la fiche de la base des données "
+                                        onclick="confirm('Etes vous sûr de supprimer la fiche ?') ? this.parentElement.submit() : ''">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form> 
                             </td>
                         </tr>
                         @php
