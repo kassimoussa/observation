@@ -70,7 +70,7 @@
         <div class="card col mb-3">
             <h4 class="card-header text-center bg-dark text-white">Observation Chef de Service Facturation</h4>
             <div class="card-body">
-                <textarea class="form-control textarea" aria-label="With textarea" name="obs_cs_facturation" rows="5"  > {{ $fiche->obs_cs_facturation }}</textarea>
+                <textarea class="form-control textarea" aria-label="With textarea" name="obs_cs_facturation" rows="5" readonly > {{ $fiche->obs_cs_facturation }}</textarea>
             </div>
         </div>
 
@@ -89,7 +89,7 @@
                         <label class="form-check-label" for="pcp">Defavorable</label>
                     </div> 
                 </div>
-                <textarea class="form-control textarea" aria-label="With textarea" name="obs_cd_si"  >{{ $fiche->obs_cd_si }} </textarea>
+                <textarea class="form-control textarea" aria-label="With textarea" name="obs_cd_si" readonly >{{ $fiche->obs_cd_si }} </textarea>
             </div>
         </div>
         @endif
