@@ -20,7 +20,7 @@ class userLogged
             
             }else{
                 $request->session()->flash('error', 'Access Denied');
-                return view('connexion');
+                return redirect('/');
             }
             return $next($request);
     }
