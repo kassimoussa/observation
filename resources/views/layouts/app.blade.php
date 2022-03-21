@@ -31,26 +31,26 @@ $user = User::where('id', session('id'))->first();
             background: #ffffff;
         }
 
-        .nav-link:hover {
+        .nav_link:hover {
             color: blue !important;
             font-weight: bold;
             font-size: 18px;
 
         }
 
-        .nav-link {
+        .nav_link {
             color: white !important;
             font-size: 18px;
         }
 
-        .active {
+        .activee {
             color: blue !important;
             font-weight: bold;
             font-size: 18px;
             background: #212529 !important;
         }
 
-        .dropdown-item .active {}
+        .dropdown-item .activee {}
 
         .main-c {
             padding-left: 50px;
@@ -78,30 +78,27 @@ $user = User::where('id', session('id'))->first();
         <div class="container-fluid">
             {{-- <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" height="40px" width="70px"
                     alt=""></a> --}}
-            <a class="navbar-brand @if ($pageSlug == 'accueil') {{ 'active' }} @endif" href="{{ url('index') }}">Accueil</a>
+            <a class="navbar-brand @if ($pageSlug == 'accueil') {{ 'activee' }} @endif" href="{{ url('index') }}">Accueil</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                 aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                    {{-- <li class="nav-item ">
-                        <a class="nav-link nav_link   " aria-current="page" href="/index">Accueil</a>
-                    </li> 
                     <li class="nav-item">
-                        <a class="nav-link nav_link  " href="#">Dashboard</a>
-                    </li> --}}
+                        <a class="nav-link nav_link  @if ($pageSlug == 'stats') {{ 'activee' }} @endif " href="{{ url('stats') }}">Stats</a>
+                    </li>
 
                     {{-- <li class="nav-item dropend">
-                        <a class="nav-link nav_link  dropdown-toggle  @if ($sup == 'sites') {{ "active" }} @endif " id="points" data-bs-toggle="dropdown"
+                        <a class="nav-link nav_link  dropdown-toggle  @if ($sup == 'sites') {{ "activee" }} @endif " id="points" data-bs-toggle="dropdown"
                             aria-expanded="false">ONUs</a>
 
                         <ul class="dropdown-menu dropdown-menu-dark bg-dark " aria-labelledby="points">
-                            <li><a class="dropdown-item @if ($pageSlug == 'list') {{ "active" }} @endif " href="/sites/list">Liste des ONUs</a></li>
+                            <li><a class="dropdown-item @if ($pageSlug == 'list') {{ "activee" }} @endif " href="/sites/list">Liste des ONUs</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item @if ($pageSlug == 'newsite') {{ "active" }} @endif " href="/sites/newsite">Ajouter un ONU</a></li>
+                            <li><a class="dropdown-item @if ($pageSlug == 'newsite') {{ "activee" }} @endif " href="/sites/newsite">Ajouter un ONU</a></li>
 
                         </ul>
                     </li> --}}
@@ -109,11 +106,11 @@ $user = User::where('id', session('id'))->first();
                 <div class="d-flex">
                     <div class="nav-item dropdown dropstart">
 
-                        <h5 class="nav-link nav_link fw-bold   dropdown-toggle @if ($sup == 'pro') {{ 'active' }} @endif " id="user"
+                        <h5 class="nav-link nav_link fw-bold   dropdown-toggle @if ($sup == 'pro') {{ 'activee' }} @endif " id="user"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $user->name }} </h5>
 
                         <ul class="dropdown-menu dropdown-menu-dark bg-dark " aria-labelledby="user">
-                            <li><a class="dropdown-item @if ($pageSlug == 'profile') {{ 'active' }} @endif" href="{{ url('profile') }}">Profile</a></li>
+                            <li><a class="dropdown-item @if ($pageSlug == 'profile') {{ 'activee' }} @endif" href="{{ url('profile') }}">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

@@ -27,9 +27,9 @@
 						Fiche D'Observation
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" >
 						{{-- <input class="input100" type="text" name="email" placeholder="Email"> --}}
-                        <input type="text" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Taper votre email">
+                        <input type="text" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required   autofocus placeholder="Taper votre email ou username">
                         <span  class="invalid-feedback">@error('email') {{ $message }} @enderror</span>
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>

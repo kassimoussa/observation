@@ -42,5 +42,7 @@ Route::group(['middleware' => ['logged']], function () {
     Route::get('fiche_pdf/{fiche}', [FicheController::class, 'pdf']);
     Route::get('dash',  [UserController::class, 'dash']);
 
+    Route::get('stats', [FicheController::class, 'stats']);
+
 });
  
