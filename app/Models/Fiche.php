@@ -9,6 +9,7 @@ class Fiche extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'id',
         'nom_client', 
         'adresse_client', 
         'num_compte',

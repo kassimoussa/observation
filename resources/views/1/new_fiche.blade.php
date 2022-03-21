@@ -29,7 +29,7 @@
         </div>
     @endif
 
-            <form action="store" role="form" method="post" class="form">
+            <form action="store" role="form" method="post" class="form" enctype="multipart/form-data">
                 @csrf
 
                 <div class="card col mb-3">
@@ -56,7 +56,7 @@
                     <div class="card-body">
                         <div class="row"> 
                             
-                            <div class="form-group control-label mb-1 col-md-3">
+                            <div class="form-group control-label mb-1 col-md-2">
                                 <label class="control-label">Type <span class="text-danger">*</span></label>
                                 <select class="form-select js-select2" name="type" id="services">
                                     <option value="" disabled selected>Select type</option>
@@ -65,7 +65,7 @@
                                     <option value="OCC">OCC</option>
                                 </select>
                             </div>
-                            <div class="form-group control-label mb-1 col-md-3">
+                            <div class="form-group control-label mb-1 col-md-2">
                                 <label class="control-label">Service <span class="text-danger">*</span></label>
                                 <select class="form-select js-select2" name="service" >
                                     <option value="" disabled selected>Select service</option>
@@ -74,14 +74,18 @@
                                     <option value="Mobile">Mobile</option>
                                 </select>
                             </div>
-                            <div class="form-group control-label mb-1 col-md-3">
+                            <div class="form-group control-label mb-1 col-md-2">
                                 <label class="control-label">N° Facture <span class="text-danger"></span></label>
                                 <input type="text" class="form-control" name="num_facture"  >
                             </div>
-                            <div class="form-group control-label mb-1 col-md-3">
+                            <div class="form-group control-label mb-1 col-md-2">
                                 <label class="control-label">Montant TTC <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" name="mont_facture" required>
                             </div>
+                            <div class="form-group control-label mb-1 col-md-4">
+                                <label class="control-label">Documents <span class="text-danger"></span></label>
+                                <input class="form-control" type="file" name="files[]" id="formFile" multiple>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -106,6 +110,7 @@
                         <button type="submit" name="submit" class="btn btn-primary fw-bold">Ajouter</button>
                         <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
                         <input type="text" name="date_ajout" value="{{ date('Y-m-d H:i:s') }}" hidden>
+                        <input type="text" class="form-control" name="id" value="{{ time() }}" hidden>
 
                     </div>
                 </div>

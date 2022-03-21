@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\FicheController;
-
+use App\Http\Controllers\FicheController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,9 @@ Route::group(['middleware' => ['logged']], function () {
     Route::delete('delete_fiche/{fiche}', [FicheController::class, 'destroy']);
     Route::get('fiche_pdf/{fiche}', [FicheController::class, 'pdf']);
     Route::get('dash',  [UserController::class, 'dash']);
-
+    Route::post('add_document', [DocumentController::class, 'store'])->name('add_document');
+    Route::get('download/{document}', [DocumentController::class, 'download']);
+    Route::delete('delete_document/{document}', [DocumentController::class, 'destroy']);
     Route::get('stats', [FicheController::class, 'stats']);
 
 });
