@@ -26,7 +26,7 @@ class FicheController extends Controller
         $fiche->obs_cs_facturation = $request->obs_cs_facturation; 
         $fiche->type = $request->type; 
         $fiche->service = $request->service; 
-        $fiche->subimtby = session('name');
+        $fiche->subimtby = session('username');
         $fiche->date_ajout = $request->date_ajout;
         $query = $fiche->save();
 

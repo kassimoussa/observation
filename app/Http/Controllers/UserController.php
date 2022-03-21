@@ -30,6 +30,7 @@ class UserController extends Controller
             if ($request->password = $user->password) {
                 $request->session()->put('id', $user->id);
                 $request->session()->put('name', $user->name);
+                $request->session()->put('username', $user->username);
                 $request->session()->put('level', $user->level);
                 return redirect('index');
             } else {
