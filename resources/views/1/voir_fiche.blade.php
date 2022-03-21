@@ -168,6 +168,7 @@
                                                     <input type="text" name="numero_fiche"
                                                         value="{{ $fiche->id }}" hidden>
                                                 </div>
+                                            </div>
                                         </form>
 
                                     </div>
@@ -180,7 +181,7 @@
             </div>
         </div>
 
-        <div class="card col mb-3">
+        <div class="card  mb-3">
             <h4 class="card-header text-center bg-dark text-white">Observation Chef de Service Facturation</h4>
             <div class="card-body">
                 <textarea class="form-control textarea" aria-label="With textarea" name="obs_cs_facturation" rows="5"
