@@ -4,11 +4,14 @@ namespace App\Http\Livewire;
 
 use App\Models\Fiche;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Counter extends Component
 {
-    public $fiches ;
+    //public $fiches ;
     public $searche ;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
  
     public function increment()
     {
@@ -22,7 +25,7 @@ class Counter extends Component
         /* $searche = '%'. $this->searche .'%' ; */
         // sleep(1);
         $searche =  $this->searche  ;
-        $this->fiches =  Fiche::where(function ($query) use ($searche) {
+        $fiches =  Fiche::where(function ($query) use ($searche) {
             $query->where('id',  $searche)
                 ->orWhere('num_facture', 'Like', '%' . $searche . '%')
                 ->orWhere('nom_client', 'Like', '%' . $searche . '%')
@@ -30,7 +33,8 @@ class Counter extends Component
                 ->orWhere('type', 'Like', '%' . $searche . '%')
                 ->orWhere('status', 'Like',  $searche . '%')
                 ->orWhere('service', 'Like', '%' . $searche . '%');
-        })->orderBy('id', 'desc')->get();
-        return view('livewire.counter');
+        })->orderBy('id', 'desc')->paginate(10);
+        return view('livewire.counter', ['fiches' => $fiches]);
+        //return view('livewire.counter');
     }
 }
