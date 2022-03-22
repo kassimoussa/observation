@@ -89,7 +89,7 @@
                 @endif
             </tbody>
         </table>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-evenly">
             {{ $fiches->links() }}
         </div>
 
