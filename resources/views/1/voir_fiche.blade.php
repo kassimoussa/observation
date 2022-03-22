@@ -44,13 +44,13 @@
                             <label class="form-control">{{ $fiche->type }} </label>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="input-group mb-3 ">
                             <span class="input-group-text txt2 fw-bold ">Service</span>
                             <label class="form-control">{{ $fiche->service }} </label>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="input-group mb-3 ">
                             <span class="input-group-text txt2 fw-bold ">Facture N°</span>
                             <label class="form-control">{{ $fiche->num_facture }} </label>
