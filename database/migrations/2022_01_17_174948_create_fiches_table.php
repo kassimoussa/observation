@@ -15,6 +15,7 @@ class CreateFichesTable extends Migration
     {
         Schema::create('fiches', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_time')->nullable();
             $table->string('nom_client')->nullable();
             $table->string('adresse_client')->nullable();
             $table->string('num_compte')->nullable();

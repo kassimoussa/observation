@@ -19,7 +19,7 @@ class FicheController extends Controller
     {
         $level = session('level');
         $fiche = new Fiche();
-        $fiche->id = $request->id;
+        $fiche->id_time = $request->id_time;
         $fiche->nom_client = $request->nom_client;
         $fiche->adresse_client = $request->adresse_client;
         $fiche->num_compte = $request->num_compte;
@@ -38,7 +38,7 @@ class FicheController extends Controller
                 $insert[$key]['file_name'] = $name;
                 $path = $file->storeAs('public/files', $name); 
                 $insert[$key]['path'] = "storage/files/".$name;
-                $insert[$key]['numero_fiche'] = $request->id;
+                $insert[$key]['numero_fiche'] = $request->id_time;
             }
             Document::insert($insert);
         }
@@ -55,7 +55,7 @@ class FicheController extends Controller
     {
         $level = session('level');
         $url = $level . '.voir_fiche';
-        $documents = Document::where('numero_fiche', $fiche->id)->get();
+        $documents = Document::where('numero_fiche', $fiche->id_time)->get();
         return view($url, compact('fiche', 'documents'));
     }
 

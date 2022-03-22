@@ -166,7 +166,7 @@
                                                     <button type="reset"
                                                         class="btn btn-outline-danger fw-bold">Annuler</button>
                                                     <input type="text" name="numero_fiche"
-                                                        value="{{ $fiche->id }}" hidden>
+                                                        value="{{ $fiche->id_time }}" hidden>
                                                 </div>
                                             </div>
                                         </form>

@@ -110,7 +110,7 @@
                         <button type="submit" name="submit" class="btn btn-primary fw-bold">Ajouter</button>
                         <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
                         <input type="text" name="date_ajout" value="{{ date('Y-m-d H:i:s') }}" hidden>
-                        <input type="text" class="form-control" name="id" value="{{ time() }}" hidden>
+                        <input type="text" class="form-control" name="id_time" value="{{ time() }}" hidden>
 
                     </div>
                 </div>
