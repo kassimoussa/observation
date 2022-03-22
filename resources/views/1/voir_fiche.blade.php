@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'Fiche Journalière', 'pageSlug' => 'fiche', 'sup' => 'fiche'])
+@extends('layouts.app', ['page' => "Fiche d'observation", 'pageSlug' => 'fiche', 'sup' => 'fiche'])
 @section('content')
     <div class="container ">
         <div class="d-flex justify-content-between mb-3" style="width: 100%">
