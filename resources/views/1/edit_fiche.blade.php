@@ -75,8 +75,8 @@
                                 </select>
                             </div>
                             <div class="form-group control-label mb-1 col-md-3">
-                                <label class="control-label">N° Facture <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="num_facture" value="{{ $fiche->num_facture }}" required>
+                                <label class="control-label">N° Facture <span class="text-danger"></span></label>
+                                <input type="text" class="form-control" name="num_facture" value="{{ $fiche->num_facture }}"  >
                             </div>
                             <div class="form-group control-label mb-1 col-md-3">
                                 <label class="control-label">Montant TTC <span class="text-danger">*</span></label>

@@ -40,8 +40,9 @@ class FicheController extends Controller
                 $insert[$key]['path'] = "storage/files/".$name;
                 $insert[$key]['numero_fiche'] = $request->id;
             }
+            Document::insert($insert);
         }
-        Document::insert($insert);
+        
 
         if ($query) {
             return redirect('/index')->with('success', 'Ajout réussi');

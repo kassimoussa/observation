@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="row  py-3 px-3">
-        <div class="d-flex justify-content-between mb-4 ">
+        {{-- <div class="d-flex justify-content-between mb-4 ">
             <h3 class="over-title ">Fiches d'Observation </h3>
-           {{--  <a href="/newfiche" class="btn   btn-primary  fw-bold">Nouvelle Fiche</a> --}}
-        </div> 
+            <a href="/newfiche" class="btn   btn-primary  fw-bold">Nouvelle Fiche</a>
+        </div>  --}}
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show " role="alert">
                 <p>{{ $message }}</p>

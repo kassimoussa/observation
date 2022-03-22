@@ -1,11 +1,15 @@
 <div class=" ">
- 
-    <div class="d-flex justify-content-start mb-2">
-        <div class="input-group  mb-3">
+
+    <div class="d-flex justify-content-between mb-2">
+        <div class="cm6 input-group  mb-3">
             <span class="input-group-text bg-dark text-white fw-bold ">Recherche</span>
             <input type="text" class="form-control " wire:model="searche"
                 placeholder="Par N° fiche, N° facture, N° compte,raison sociale, type ou service ">
         </div>
+        @if (session('level') == 1)
+           <a href="newfiche" class="btn btn-primary newf fw-bold">Nouvelle Fiche</a> 
+        @endif
+        
     </div>
 
     <div>
@@ -55,15 +59,15 @@
                                     data-bs-placement="bottom" title="Voir la fiche ">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                @if(session('level')=="1")
-                                <a href="{{ url('edit', $fiche) }}" class="btn btn-link {{ $editbtn }} " data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom" title="Modifier la fiche ">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                
+                                @if (session('level') == '1')
+                                    <a href="{{ url('edit', $fiche) }}" class="btn btn-link {{ $editbtn }} "
+                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Modifier la fiche ">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                 @endif
 
-                                <form action="{{  url('delete_fiche', $fiche) }}" method="post" class="d-inline">
+                                <form action="{{ url('delete_fiche', $fiche) }}" method="post"
+                                    class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button type="button" class="btn btn-link" data-bs-toggle="tooltip"
@@ -71,7 +75,7 @@
                                         onclick="confirm('Etes vous sûr de supprimer la fiche ?') ? this.parentElement.submit() : ''">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
-                                </form> 
+                                </form>
                             </td>
                         </tr>
                         @php
@@ -88,3 +92,13 @@
 
     </div>
 </div>
+
+<style>
+    .cm6 {
+        width: 80%;
+    }
+    .newf{
+        height : 10%;
+    }
+
+</style>
