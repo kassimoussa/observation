@@ -94,18 +94,18 @@ class FicheController extends Controller
             $rentres[$i] = Fiche::whereMonth('date_ajout',  $i)->count();
         }
 
-        $janvier = Fiche::whereMonth('date_ajout',  "1")->orderby('date_ajout', 'desc')->get();
-        $fevrier = Fiche::whereMonth('date_ajout',  "2")->orderby('date_ajout', 'desc')->get();
-        $mars = Fiche::whereMonth('date_ajout',  "3")->orderby('date_ajout', 'desc')->get();
-        $avril = Fiche::whereMonth('date_ajout',  "4")->orderby('date_ajout', 'desc')->get();
-        $mai = Fiche::whereMonth('date_ajout',  "5")->orderby('date_ajout', 'desc')->get();
-        $juin = Fiche::whereMonth('date_ajout',  "6")->orderby('date_ajout', 'desc')->get();
-        $juillet = Fiche::whereMonth('date_ajout',  "7")->orderby('date_ajout', 'desc')->get();
-        $aout = Fiche::whereMonth('date_ajout',  "8")->orderby('date_ajout', 'desc')->get();
-        $septembre = Fiche::whereMonth('date_ajout',  "9")->orderby('date_ajout', 'desc')->get();
-        $octobre = Fiche::whereMonth('date_ajout',  "10")->orderby('date_ajout', 'desc')->get();
-        $novembre = Fiche::whereMonth('date_ajout',  "11")->orderby('date_ajout', 'desc')->get();
-        $decembre = Fiche::whereMonth('date_ajout',  "12")->orderby('date_ajout', 'desc')->get();
+        $janvier = Fiche::whereMonth('date_ajout',  "1")->orderby('created_at', 'desc')->get();
+        $fevrier = Fiche::whereMonth('date_ajout',  "2")->orderby('created_at', 'desc')->get();
+        $mars = Fiche::whereMonth('date_ajout',  "3")->orderby('created_at', 'desc')->get();
+        $avril = Fiche::whereMonth('date_ajout',  "4")->orderby('created_at', 'desc')->get();
+        $mai = Fiche::whereMonth('date_ajout',  "5")->orderby('created_at', 'desc')->get();
+        $juin = Fiche::whereMonth('date_ajout',  "6")->orderby('created_at', 'desc')->get();
+        $juillet = Fiche::whereMonth('date_ajout',  "7")->orderby('created_at', 'desc')->get();
+        $aout = Fiche::whereMonth('date_ajout',  "8")->orderby('created_at', 'desc')->get();
+        $septembre = Fiche::whereMonth('date_ajout',  "9")->orderby('created_at', 'desc')->get();
+        $octobre = Fiche::whereMonth('date_ajout',  "10")->orderby('created_at', 'desc')->get();
+        $novembre = Fiche::whereMonth('date_ajout',  "11")->orderby('created_at', 'desc')->get();
+        $decembre = Fiche::whereMonth('date_ajout',  "12")->orderby('created_at', 'desc')->get();
 
         return view('stats', compact('annee', 'rentres', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre',));
     }
