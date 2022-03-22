@@ -63,7 +63,7 @@ class UserController extends Controller
                     ->orWhere('num_compte', 'Like', '%' . $search . '%')
                     ->orWhere('type', 'Like', '%' . $search . '%')
                     ->orWhere('service', 'Like', '%' . $search . '%');
-            })->orderBy('updated_at', 'desc')->paginate(10);
+            })->orderBy('created_at', 'desc')->paginate(10);
         } else {
             $fiches = Fiche::orderBy('id', 'desc')->paginate(10);
         }
