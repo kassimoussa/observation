@@ -89,6 +89,9 @@
                 @endif
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $fiches->links() }}
+        </div>
 
     </div>
 </div>
