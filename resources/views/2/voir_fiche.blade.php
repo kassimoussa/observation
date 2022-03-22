@@ -127,7 +127,7 @@
         }
 
         .txt2 {
-            width: 120px;
+            width: 100px;
             background: lavender;
         }
 
