@@ -243,7 +243,7 @@ use App\Models\Direction;
 
         <br>
 
-        <h4 style="text-decoration: underline"> Avis ET OBSERVATION CHEF DE DIVISION SI </h4>
+        <h4 style="text-decoration: underline"> AVIS ET OBSERVATION CHEF DE DIVISION SI </h4>
 
         <div class="card">
             <p>{{ $fiche->obs_cd_si }}</p>
