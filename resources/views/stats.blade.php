@@ -139,12 +139,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -209,12 +209,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -318,12 +318,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -388,12 +388,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -458,12 +458,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -528,12 +528,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -598,12 +598,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -668,12 +668,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -738,12 +738,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -808,12 +808,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -878,12 +878,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
@@ -948,12 +948,12 @@
                                                     <a href="{{ url('/show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
-                                                    </a>
+                                                    </a>{{-- 
                                                     <a href="{{ url('/edit', $fiche) }}" class="btn btn-link {{ $editbtn }}"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche "
                                                         {{ $editbtn }}>
                                                         <i class="fas fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                             @php
