@@ -41,7 +41,7 @@
                                 $txt = 'dark';
                             } elseif ($status == 'Favorable') {
                                 $bg = 'success';
-                                $editbtn = 'disabled';
+                                $editbtn = ' ';
                             } elseif ($status == 'Defavorable') {
                                 $bg = 'danger';
                             }
@@ -59,12 +59,12 @@
                                     data-bs-placement="bottom" title="Voir la fiche ">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                @if (session('level') == '1')
+                                {{-- @if (session('level') == '1') --}}
                                     <a href="{{ url('edit', $fiche) }}" class="btn btn-link {{ $editbtn }} "
                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Modifier la fiche ">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                @endif
+                                {{-- @endif --}}
 
                                 <form action="{{ url('delete_fiche', $fiche) }}" method="post"
                                     class="d-inline">

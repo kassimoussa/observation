@@ -212,7 +212,7 @@
                     <textarea class="form-control textarea mb-2" aria-label="With textarea"
                         name="obs_cd_si">{{ $fiche->obs_cd_si }} </textarea>
 
-                    @if ($fiche->status == 'Defavorable' || $fiche->status == null)
+                    {{-- @if ($fiche->status == 'Defavorable' || $fiche->status == null) --}}
                         <div class="row mb-3">
                             <div class=" form-group text-center">
                                 <button type="submit" name="submit" class="btn btn-primary fw-bold">Soumettre</button>
@@ -220,7 +220,7 @@
                                 <input type="text" name="date_ajout" value="{{ date('Y-m-d H:i:s') }}" hidden>
                             </div>
                         </div>
-                    @endif
+                    {{-- @endif --}}
 
                 </div>
             </div>

@@ -108,6 +108,35 @@ class FicheController extends Controller
         $novembre = Fiche::whereMonth('date_ajout',  "11")->orderby('created_at', 'desc')->get();
         $decembre = Fiche::whereMonth('date_ajout',  "12")->orderby('created_at', 'desc')->get();
 
-        return view('stats', compact('annee', 'rentres', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre',));
+        for ($i = 1; $i <= 12; $i++) { 
+            $degrevement[$i] = Fiche::where('type', 'Dégrevement')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $internet[$i] = Fiche::where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $mobile[$i] = Fiche::where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $fix[$i] = Fiche::where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_m[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_i[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_f[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+        }
+        for ($i = 1; $i <= 12; $i++) { 
+            $ajustement[$i] = Fiche::where('type', 'Ajustement')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_m[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_i[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_f[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+        }
+        for ($i = 1; $i <= 12; $i++) { 
+            $occ[$i] = Fiche::where('type', 'OCC')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_m[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_i[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_f[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+        }
+
+        
+
+        return view('stats', compact('internet','mobile','fix',
+        'degrevement','degrevement_m','degrevement_i','degrevement_f',
+        'ajustement','ajustement_m','ajustement_i','ajustement_f','occ','occ_m','occ_i','occ_f','annee', 
+        'rentres', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 
+        'septembre', 'octobre', 'novembre', 'decembre',));
     }
 }
