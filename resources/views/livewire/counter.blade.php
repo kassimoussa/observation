@@ -1,7 +1,7 @@
 <div class=" ">
 
     <div class="d-flex justify-content-between mb-2">
-        <div class="cm6 input-group  mb-3">
+        <div class="@if (session('level') == 1) {{ 'cm6' }} @endif input-group  mb-3">
             <span class="input-group-text bg-dark text-white fw-bold ">Recherche</span>
             <input type="text" class="form-control " wire:model="searche"
                 placeholder="Par N° fiche, N° facture, N° compte,raison sociale, type ou service ">

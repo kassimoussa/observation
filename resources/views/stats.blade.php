@@ -93,6 +93,43 @@
                 <div class="tab-content mt-3">
                     <div class="tab-pane @if (date('m') == "01") {{ 'active' }} @else @endif " id="janvier" role="tabpanel">  
                         <div class=" ">  
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[1] }} </td>
+                                    <td>{{ $ajustement_i[1] }} </td>
+                                    <td>{{ $occ_i[1] }} </td>
+                                    <td>{{ $internet[1] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[1] }} </td>
+                                    <td>{{ $ajustement_m[1] }} </td>
+                                    <td>{{ $occ_m[1] }} </td>
+                                   <td>{{ $mobile[1] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[1] }} </td>
+                                    <td>{{ $ajustement_f[1] }} </td>
+                                    <td>{{ $occ_f[1] }} </td>
+                                   <td>{{ $fix[1] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[1] }} </td>
+                                    <td>{{ $ajustement[1] }} </td>
+                                    <td>{{ $occ[1] }} </td>
+                                   <td>{{ $rentres[1] }}  </td>
+                                </tr>
+                            </table>
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -163,6 +200,43 @@
 
                     <div class="tab-pane @if (date('m') == "02") {{ 'active' }} @else @endif" id="fevrier" role="tabpanel">  
                         <div class=" ">  
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[2] }} </td>
+                                    <td>{{ $ajustement_i[2] }} </td>
+                                    <td>{{ $occ_i[2] }} </td>
+                                    <td>{{ $internet[2] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[2] }} </td>
+                                    <td>{{ $ajustement_m[2] }} </td>
+                                    <td>{{ $occ_m[2] }} </td>
+                                   <td>{{ $mobile[2] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[2] }} </td>
+                                    <td>{{ $ajustement_f[2] }} </td>
+                                    <td>{{ $occ_f[2] }} </td>
+                                   <td>{{ $fix[2] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[2] }} </td>
+                                    <td>{{ $ajustement[2] }} </td>
+                                    <td>{{ $occ[2] }} </td>
+                                   <td>{{ $rentres[2] }}  </td>
+                                </tr>
+                            </table>
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -341,7 +415,44 @@
                     </div>
 
                     <div class="tab-pane @if (date('m') == "04") {{ 'active' }} @else @endif" id="avril" role="tabpanel">  
-                        <div class=" ">  
+                        <div class=" "> 
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[4] }} </td>
+                                    <td>{{ $ajustement_i[4] }} </td>
+                                    <td>{{ $occ_i[4] }} </td>
+                                    <td>{{ $internet[4] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[4] }} </td>
+                                    <td>{{ $ajustement_m[4] }} </td>
+                                    <td>{{ $occ_m[4] }} </td>
+                                   <td>{{ $mobile[4] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[4] }} </td>
+                                    <td>{{ $ajustement_f[4] }} </td>
+                                    <td>{{ $occ_f[4] }} </td>
+                                   <td>{{ $fix[4] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[4] }} </td>
+                                    <td>{{ $ajustement[4] }} </td>
+                                    <td>{{ $occ[4] }} </td>
+                                   <td>{{ $rentres[4] }}  </td>
+                                </tr>
+                            </table> 
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -412,6 +523,43 @@
 
                     <div class="tab-pane @if (date('m') == "05") {{ 'active' }} @else @endif" id="mai" role="tabpanel">  
                         <div class=" ">  
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[5] }} </td>
+                                    <td>{{ $ajustement_i[5] }} </td>
+                                    <td>{{ $occ_i[5] }} </td>
+                                    <td>{{ $internet[5] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[5] }} </td>
+                                    <td>{{ $ajustement_m[5] }} </td>
+                                    <td>{{ $occ_m[5] }} </td>
+                                   <td>{{ $mobile[5] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[5] }} </td>
+                                    <td>{{ $ajustement_f[5] }} </td>
+                                    <td>{{ $occ_f[5] }} </td>
+                                   <td>{{ $fix[5] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[5] }} </td>
+                                    <td>{{ $ajustement[5] }} </td>
+                                    <td>{{ $occ[5] }} </td>
+                                   <td>{{ $rentres[5] }}  </td>
+                                </tr>
+                            </table>
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -482,6 +630,43 @@
 
                     <div class="tab-pane @if (date('m') == "06") {{ 'active' }} @else @endif" id="juin" role="tabpanel">  
                         <div class=" ">  
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[6] }} </td>
+                                    <td>{{ $ajustement_i[6] }} </td>
+                                    <td>{{ $occ_i[6] }} </td>
+                                    <td>{{ $internet[6] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[6] }} </td>
+                                    <td>{{ $ajustement_m[6] }} </td>
+                                    <td>{{ $occ_m[6] }} </td>
+                                   <td>{{ $mobile[6] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[6] }} </td>
+                                    <td>{{ $ajustement_f[6] }} </td>
+                                    <td>{{ $occ_f[6] }} </td>
+                                   <td>{{ $fix[6] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[6] }} </td>
+                                    <td>{{ $ajustement[6] }} </td>
+                                    <td>{{ $occ[6] }} </td>
+                                   <td>{{ $rentres[6] }}  </td>
+                                </tr>
+                            </table>
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -552,6 +737,43 @@
 
                     <div class="tab-pane @if (date('m') == "07") {{ 'active' }} @else @endif" id="juillet" role="tabpanel">  
                         <div class=" ">  
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[7] }} </td>
+                                    <td>{{ $ajustement_i[7] }} </td>
+                                    <td>{{ $occ_i[7] }} </td>
+                                    <td>{{ $internet[7] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[7] }} </td>
+                                    <td>{{ $ajustement_m[7] }} </td>
+                                    <td>{{ $occ_m[7] }} </td>
+                                   <td>{{ $mobile[7] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[7] }} </td>
+                                    <td>{{ $ajustement_f[7] }} </td>
+                                    <td>{{ $occ_f[7] }} </td>
+                                   <td>{{ $fix[7] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[7] }} </td>
+                                    <td>{{ $ajustement[7] }} </td>
+                                    <td>{{ $occ[7] }} </td>
+                                   <td>{{ $rentres[7] }}  </td>
+                                </tr>
+                            </table>
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -622,6 +844,43 @@
 
                     <div class="tab-pane @if (date('m') == "08") {{ 'active' }} @else @endif" id="aout" role="tabpanel">  
                         <div class=" ">  
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[8] }} </td>
+                                    <td>{{ $ajustement_i[8] }} </td>
+                                    <td>{{ $occ_i[8] }} </td>
+                                    <td>{{ $internet[8] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[8] }} </td>
+                                    <td>{{ $ajustement_m[8] }} </td>
+                                    <td>{{ $occ_m[8] }} </td>
+                                   <td>{{ $mobile[8] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[8] }} </td>
+                                    <td>{{ $ajustement_f[8] }} </td>
+                                    <td>{{ $occ_f[8] }} </td>
+                                   <td>{{ $fix[8] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[8] }} </td>
+                                    <td>{{ $ajustement[8] }} </td>
+                                    <td>{{ $occ[8] }} </td>
+                                   <td>{{ $rentres[8] }}  </td>
+                                </tr>
+                            </table>
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -691,7 +950,44 @@
                     </div>
 
                     <div class="tab-pane @if (date('m') == "09") {{ 'active' }} @else @endif" id="septembre" role="tabpanel">  
-                        <div class=" ">  
+                        <div class=" "> 
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[9] }} </td>
+                                    <td>{{ $ajustement_i[9] }} </td>
+                                    <td>{{ $occ_i[9] }} </td>
+                                    <td>{{ $internet[9] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[9] }} </td>
+                                    <td>{{ $ajustement_m[9] }} </td>
+                                    <td>{{ $occ_m[9] }} </td>
+                                   <td>{{ $mobile[9] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[9] }} </td>
+                                    <td>{{ $ajustement_f[9] }} </td>
+                                    <td>{{ $occ_f[9] }} </td>
+                                   <td>{{ $fix[9] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[9] }} </td>
+                                    <td>{{ $ajustement[9] }} </td>
+                                    <td>{{ $occ[9] }} </td>
+                                   <td>{{ $rentres[9] }}  </td>
+                                </tr>
+                            </table> 
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -762,6 +1058,43 @@
 
                     <div class="tab-pane @if (date('m') == "10") {{ 'active' }} @else @endif" id="octobre" role="tabpanel">  
                         <div class=" ">  
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[10] }} </td>
+                                    <td>{{ $ajustement_i[10] }} </td>
+                                    <td>{{ $occ_i[10] }} </td>
+                                    <td>{{ $internet[10] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[10] }} </td>
+                                    <td>{{ $ajustement_m[10] }} </td>
+                                    <td>{{ $occ_m[10] }} </td>
+                                   <td>{{ $mobile[10] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[10] }} </td>
+                                    <td>{{ $ajustement_f[10] }} </td>
+                                    <td>{{ $occ_f[10] }} </td>
+                                   <td>{{ $fix[10] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[10] }} </td>
+                                    <td>{{ $ajustement[10] }} </td>
+                                    <td>{{ $occ[10] }} </td>
+                                   <td>{{ $rentres[10] }}  </td>
+                                </tr>
+                            </table>
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -831,7 +1164,44 @@
                     </div>
 
                     <div class="tab-pane @if (date('m') == "11") {{ 'active' }} @else @endif " id="novembre" role="tabpanel">  
-                        <div class=" ">  
+                        <div class=" "> 
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[11] }} </td>
+                                    <td>{{ $ajustement_i[11] }} </td>
+                                    <td>{{ $occ_i[11] }} </td>
+                                    <td>{{ $internet[11] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[11] }} </td>
+                                    <td>{{ $ajustement_m[11] }} </td>
+                                    <td>{{ $occ_m[11] }} </td>
+                                   <td>{{ $mobile[11] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[11] }} </td>
+                                    <td>{{ $ajustement_f[11] }} </td>
+                                    <td>{{ $occ_f[11] }} </td>
+                                   <td>{{ $fix[11] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[11] }} </td>
+                                    <td>{{ $ajustement[11] }} </td>
+                                    <td>{{ $occ[11] }} </td>
+                                   <td>{{ $rentres[11] }}  </td>
+                                </tr>
+                            </table> 
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
@@ -901,7 +1271,44 @@
                     </div>
 
                     <div class="tab-pane @if (date('m') == "12") {{ 'active' }} @else @endif " id="decembre" role="tabpanel">  
-                        <div class=" ">  
+                        <div class=" "> 
+                            <table class="table table-bordered border-primary " id="">
+                                <tr class="table-dark ">
+                                    <th>#</th>
+                                    <th>Dégrevement</th>
+                                    <th>Ajustement</th>
+                                    <th>OCC</th> 
+                                    <th>Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Internet</th>
+                                    <td>{{ $degrevement_i[12] }} </td>
+                                    <td>{{ $ajustement_i[12] }} </td>
+                                    <td>{{ $occ_i[12] }} </td>
+                                    <td>{{ $internet[12] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Mobile</th>
+                                    <td>{{ $degrevement_m[12] }} </td>
+                                    <td>{{ $ajustement_m[12] }} </td>
+                                    <td>{{ $occ_m[12] }} </td>
+                                   <td>{{ $mobile[12] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Fix</th>
+                                    <td>{{ $degrevement_f[12] }} </td>
+                                    <td>{{ $ajustement_f[12] }} </td>
+                                    <td>{{ $occ_f[12] }} </td>
+                                   <td>{{ $fix[12] }}  </td>
+                                </tr>
+                                <tr>
+                                    <th class="table-dark ">Total</th>
+                                    <td>{{ $degrevement[12] }} </td>
+                                    <td>{{ $ajustement[12] }} </td>
+                                    <td>{{ $occ[12] }} </td>
+                                   <td>{{ $rentres[12] }}  </td>
+                                </tr>
+                            </table> 
                             <table class="table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
