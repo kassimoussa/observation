@@ -58,8 +58,8 @@
                             
                             <div class="form-group control-label mb-1 col-md-2">
                                 <label class="control-label">Type <span class="text-danger">*</span></label>
-                                <select class="form-select js-select2" name="type" id="services">
-                                    <option value="" disabled selected>Select type</option>
+                                <select class="form-select js-select2" name="type" id="services" required>
+                                    <option value="" disabled selected >Select type</option>
                                     <option value="Dégrevement">Dégrevement</option>
                                     <option value="Ajustement">Ajustement</option>
                                     <option value="OCC">OCC</option>
@@ -67,11 +67,14 @@
                             </div>
                             <div class="form-group control-label mb-1 col-md-2">
                                 <label class="control-label">Service <span class="text-danger">*</span></label>
-                                <select class="form-select js-select2" name="service" >
+                                <select class="form-select js-select2" name="service" required>
                                     <option value="" disabled selected>Select service</option>
                                     <option value="Internet">Internet</option>
                                     <option value="Fix">Fix</option>
                                     <option value="Mobile">Mobile</option>
+                                    <option value="Internet-Fix">Internet-Fix</option>
+                                    <option value="Fix-Mobile">Fix-Mobile</option>
+                                    <option value="neon" >Neon</option>
                                 </select>
                             </div>
                             <div class="form-group control-label mb-1 col-md-2">

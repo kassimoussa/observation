@@ -113,20 +113,45 @@ class FicheController extends Controller
             $internet[$i] = Fiche::where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $mobile[$i] = Fiche::where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $fix[$i] = Fiche::where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $internetfix[$i] = Fiche::where('service', 'Internet-Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $fixmobile[$i] = Fiche::where('service', 'Fix-Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $unk[$i] = Fiche::where('service', 'neon')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
             $degrevement_m[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $degrevement_i[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $degrevement_f[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $degrevement_i_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $degrevement_i_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $degrevement_i_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_if[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet-Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_fm[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix-Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $degrevement_m_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $degrevement_m_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $degrevement_m_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_i_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_i_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_i_annule[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_i_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $degrevement_f_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $degrevement_f_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $degrevement_f_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_m_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_m_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_m_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_m_annule[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Mobile')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $degrevement_f_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_f_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_f_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_f_annule[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $degrevement_fm_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix-Mobile')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_fm_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix-Mobile')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_fm_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix-Mobile')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_fm_annule[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Fix-Mobile')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $degrevement_if_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet-Fix')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_if_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet-Fix')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_if_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet-Fix')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_if_annule[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'Internet-Fix')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $degrevement_unk_fav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'neon')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_unk_defav[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'neon')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_unk_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'neon')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_unk_annule[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'neon')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
 
         }
@@ -135,44 +160,106 @@ class FicheController extends Controller
             $ajustement_m[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $ajustement_i[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $ajustement_f[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_if[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet-Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_fm[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix-Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $ajustement_i_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $ajustement_i_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $ajustement_i_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $ajustement_m_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $ajustement_m_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $ajustement_m_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_i_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_i_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_i_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_i_annule[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $ajustement_f_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $ajustement_f_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $ajustement_f_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_m_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_m_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_m_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_m_annule[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Mobile')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $ajustement_f_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_f_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_f_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_f_annule[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $ajustement_fm_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix-Mobile')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_fm_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix-Mobile')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_fm_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix-Mobile')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_fm_annule[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Fix-Mobile')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $ajustement_if_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet-Fix')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_if_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet-Fix')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_if_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet-Fix')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_if_annule[$i] = Fiche::where('type', 'Ajustement')->where('service', 'Internet-Fix')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $ajustement_unk_fav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'neon')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_unk_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'neon')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_unk_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'neon')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_unk_annule[$i] = Fiche::where('type', 'Ajustement')->where('service', 'neon')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
         }
         for ($i = 1; $i <= 12; $i++) { 
             $occ[$i] = Fiche::where('type', 'OCC')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $occ_m[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $occ_i[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $occ_f[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_if[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet-Fix')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_fm[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix-Mobile')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $occ_i_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $occ_i_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $occ_i_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $occ_m_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $occ_m_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $occ_m_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_i_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_i_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_i_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_i_annule[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
-            $occ_f_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->where('status', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $occ_f_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->where('status', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
-            $occ_f_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->where('status', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_m_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_m_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_m_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_m_annule[$i] = Fiche::where('type', 'OCC')->where('service', 'Mobile')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $occ_f_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_f_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_f_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_f_annule[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $occ_fm_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix-Mobile')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_fm_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix-Mobile')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_fm_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix-Mobile')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_fm_annule[$i] = Fiche::where('type', 'OCC')->where('service', 'Fix-Mobile')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $occ_if_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet-Fix')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_if_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet-Fix')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_if_null[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet-Fix')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_if_annule[$i] = Fiche::where('type', 'OCC')->where('service', 'Internet-Fix')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $occ_unk_fav[$i] = Fiche::where('type', 'OCC')->where('service', 'neon')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_unk_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'neon')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_unk_null[$i] = Fiche::where('type', 'OCC')->where('service', 'neon')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_unk_annule[$i] = Fiche::where('type', 'OCC')->where('service', 'neon')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
         }
 
         
 
-        return view('stats', compact('internet','mobile','fix',
-        'degrevement','degrevement_m','degrevement_i','degrevement_f', 'degrevement_i_fav', 'degrevement_i_defav', 'degrevement_i_null', 'degrevement_m_fav', 'degrevement_m_defav', 'degrevement_m_null', 'degrevement_f_fav', 'degrevement_f_defav', 'degrevement_f_null', 
-        'ajustement','ajustement_m','ajustement_i','ajustement_f', 'ajustement_i_fav', 'ajustement_i_defav', 'ajustement_i_null', 'ajustement_m_fav', 'ajustement_m_defav', 'ajustement_m_null', 'ajustement_f_fav', 'ajustement_f_defav', 'ajustement_f_null',
-        'occ','occ_m','occ_i','occ_f','annee', 'occ_i_fav', 'occ_i_defav', 'occ_i_null', 'occ_m_fav', 'occ_m_defav', 'occ_m_null', 'occ_f_fav', 'occ_f_defav', 'occ_f_null',
+        return view('stats', compact('internet','mobile','fix', 'internetfix', 'fixmobile', 'unk', 'annee',
+        'degrevement','degrevement_m','degrevement_i','degrevement_f', 'degrevement_if','degrevement_fm', 
+        'degrevement_i_fav', 'degrevement_i_defav', 'degrevement_i_null', 'degrevement_i_annule',
+        'degrevement_m_fav', 'degrevement_m_defav', 'degrevement_m_null', 'degrevement_m_annule',
+        'degrevement_f_fav', 'degrevement_f_defav', 'degrevement_f_null', 'degrevement_f_annule',
+        'degrevement_if_fav', 'degrevement_if_defav', 'degrevement_if_null','degrevement_if_annule',
+        'degrevement_fm_fav', 'degrevement_fm_defav', 'degrevement_fm_null','degrevement_fm_annule',
+        'degrevement_unk_fav', 'degrevement_unk_defav', 'degrevement_unk_null', 'degrevement_unk_annule',
+
+        'ajustement','ajustement_m','ajustement_i','ajustement_f', 'ajustement_if','ajustement_fm', 
+        'ajustement_i_fav', 'ajustement_i_defav', 'ajustement_i_null', 'ajustement_i_annule',
+        'ajustement_m_fav', 'ajustement_m_defav', 'ajustement_m_null', 'ajustement_m_annule',
+        'ajustement_f_fav', 'ajustement_f_defav', 'ajustement_f_null', 'ajustement_f_annule',
+        'ajustement_if_fav', 'ajustement_if_defav', 'ajustement_if_null', 'ajustement_if_annule',
+        'ajustement_fm_fav', 'ajustement_fm_defav', 'ajustement_fm_null', 'ajustement_fm_annule',
+        'ajustement_unk_fav', 'ajustement_unk_defav', 'ajustement_unk_null', 'ajustement_unk_annule',
+
+        'occ','occ_m','occ_i','occ_f', 'occ_if','occ_fm',  'degrevement_i_annule',
+        'occ_i_fav', 'occ_i_defav', 'occ_i_null', 'occ_i_annule',
+        'occ_m_fav', 'occ_m_defav', 'occ_m_null', 'occ_m_annule',
+        'occ_f_fav', 'occ_f_defav', 'occ_f_null', 'occ_f_annule',
+        'occ_if_fav', 'occ_if_defav', 'occ_if_null', 'occ_if_annule',
+        'occ_fm_fav', 'occ_fm_defav', 'occ_fm_null', 'occ_fm_annule',
+        'occ_unk_fav', 'occ_unk_defav', 'occ_unk_null', 'occ_unk_annule',
         'rentres', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 
         'septembre', 'octobre', 'novembre', 'decembre',));
     }

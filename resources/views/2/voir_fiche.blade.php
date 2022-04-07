@@ -194,33 +194,73 @@
             </div>
 
             <div class="card col mb-3">
-                <h4 class="card-header text-center bg-dark text-white">Avis et Observation Chef de Division SI</h4>
+                <h4 class="card-header text-center bg-dark text-white">Observation Chef de Division SI</h4>
                 <div class="card-body">
 
-                    <div class="col mb-2 d-flex justify-content-between">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="pcb" value="Favorable"
-                                @if ($fiche->status == 'Favorable') checked @endif>
-                            <label class="form-check-label" for="pcb">Favorable</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="pcp" value="Defavorable"
-                                @if ($fiche->status == 'Defavorable') checked @endif>
-                            <label class="form-check-label" for="pcp">Defavorable</label>
-                        </div>
-                    </div>
-                    <textarea class="form-control textarea mb-2" aria-label="With textarea"
-                        name="obs_cd_si">{{ $fiche->obs_cd_si }} </textarea>
+                    <div class="row mb-2 ">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <h4 class="card-header  text-center bg-dark text-white">Avis</h4>
+                                <div class="card-body">
+                                    <div class="mb-2 d-flex justify-content-between">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="avis" id="fav"
+                                                value="Favorable" @if ($fiche->avis == 'Favorable') checked @endif>
+                                            <label class="form-check-label" for="fav">Favorable</label>
+                                        </div>
 
-                    {{-- @if ($fiche->status == 'Defavorable' || $fiche->status == null) --}}
-                        <div class="row mb-3">
-                            <div class=" form-group text-center">
-                                <button type="submit" name="submit" class="btn btn-primary fw-bold">Soumettre</button>
-                                <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
-                                <input type="text" name="date_ajout" value="{{ date('Y-m-d H:i:s') }}" hidden>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="avis" id="defav"
+                                                value="Defavorable" @if ($fiche->avis == 'Defavorable') checked @endif>
+                                            <label class="form-check-label" for="defav">Defavorable</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="avis" id="annule"
+                                                value="Annulé" @if ($fiche->avis == 'Annulé') checked @endif>
+                                            <label class="form-check-label" for="fav">Annulé</label>
+                                        </div>
+                                    </div>
+                                    <textarea class="form-control textarea mb-2" aria-label="With textarea"
+                                        name="obs_cd_si">{{ $fiche->obs_cd_si }} </textarea>
+                                </div>
                             </div>
                         </div>
-                    {{-- @endif --}}
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <h4 class="card-header  text-center bg-dark text-white">Status</h4>
+                                <div class="card-body">
+                                    <div class="mb-2 d-flex justify-content-between">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status" id="clo"
+                                                value="Cloturé" @if ($fiche->status == 'Cloturé') checked @endif>
+                                            <label class="form-check-label" for="clo">Cloturé</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status" id="encours"
+                                                value="En cours" @if ($fiche->status == 'En cours') checked @endif>
+                                            <label class="form-check-label" for="encours">En cours</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status" id="rej"
+                                                value="Rejeté" @if ($fiche->status == 'Rejeté') checked @endif>
+                                            <label class="form-check-label" for="rej">Rejeté</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class=" form-group text-center">
+                            <button type="submit" name="submit" class="btn btn-primary fw-bold">Soumettre</button>
+                            <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button> 
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -253,4 +293,15 @@
         }
 
     </style>
+
+    <script>
+        $(function() {
+            $('input[type="radio"]').click(function() {
+                if ($(this).attr('id') == "fav" || $(this).attr('id') == "annule" ) {
+                    $("#clo").prop("checked", true);
+                } 
+
+            });
+        });
+    </script>
 @endsection

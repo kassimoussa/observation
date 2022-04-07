@@ -21,6 +21,7 @@
                 <th scope="col">N° Compte</th>
                 <th scope="col">Type</th>
                 <th scope="col">Service</th>
+                <th scope="col">Avis</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </thead>
@@ -32,18 +33,22 @@
 
                     @foreach ($fiches as $key => $fiche)
                         @php
-                            $status = $fiche->status;
+                            $avis = $fiche->avis;
                             $bg = 'white';
                             $txt = 'white';
                             $editbtn = '';
-                            if ($status == null) {
-                                $status = "Pas d'avis";
+                            if ($avis == null) {
+                                $avis = "Pas d'avis";
                                 $txt = 'dark';
-                            } elseif ($status == 'Favorable') {
+                            } elseif ($avis == 'Favorable') {
                                 $bg = 'success';
                                 $editbtn = ' ';
-                            } elseif ($status == 'Defavorable') {
+                            } elseif ($avis == 'Defavorable') {
                                 $bg = 'danger';
+                            }
+                            elseif ($avis == 'Annulé') {
+                                $bg = 'warning';
+                                $txt = 'dark';
                             }
                         @endphp
                         <tr>
@@ -53,7 +58,8 @@
                             <td>{{ $fiche->num_compte }}</td>
                             <td>{{ $fiche->type }}</td>
                             <td>{{ $fiche->service }}</td>
-                            <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $status }}</td>
+                            <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
+                            <td>{{ $fiche->status }} </td>
                             <td class="td-actions ">
                                 <a href="{{ url('show', $fiche) }}" class="btn btn-link" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Voir la fiche ">

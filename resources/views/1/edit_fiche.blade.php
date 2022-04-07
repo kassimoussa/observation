@@ -58,7 +58,7 @@
                             
                             <div class="form-group control-label mb-1 col-md-3">
                                 <label class="control-label">Type <span class="text-danger">*</span></label>
-                                <select class="form-select js-select2" name="type" id="services">
+                                <select class="form-select js-select2" name="type" id="services" required>
                                     <option value="" disabled selected>Select type</option>
                                     <option value="Dégrevement" @if($fiche->type == "Dégrevement") selected @endif>Dégrevement</option>
                                     <option value="Ajustement" @if($fiche->type == "Ajustement") selected @endif>Ajustement</option>
@@ -67,11 +67,14 @@
                             </div>
                             <div class="form-group control-label mb-1 col-md-3">
                                 <label class="control-label">Service <span class="text-danger">*</span></label>
-                                <select class="form-select js-select2" name="service" >
-                                    <option value="" disabled selected>Select service</option>
+                                <select class="form-select js-select2" name="service" required>
+                                    <option  disabled selected>Select service</option>
                                     <option value="Internet" @if($fiche->service == "Internet") selected @endif >Internet</option>
                                     <option value="Fix" @if($fiche->service == "Fix") selected @endif >Fix</option>
                                     <option value="Mobile" @if($fiche->service == "Mobile") selected @endif >Mobile</option>
+                                    <option value="Internet-Fix" @if($fiche->service == "Internet-Fix") selected @endif >Internet-Fix</option>
+                                    <option value="Fix-Mobile" @if($fiche->service == "Fix-Mobile") selected @endif >Fix-Mobile</option>
+                                    <option value="neon" @if($fiche->service == "neon") selected @endif>Neon</option>
                                 </select>
                             </div>
                             <div class="form-group control-label mb-1 col-md-3">
@@ -104,8 +107,7 @@
                 <div class="row mb-3">
                     <div class=" form-group text-center">
                         <button type="submit" name="submit" class="btn btn-primary fw-bold">Modifier</button>
-                        <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
-                        <input type="text" name="date_ajout" value="{{ date('Y-m-d H:i:s') }}" hidden>
+                        <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button> 
 
                     </div>
                 </div>

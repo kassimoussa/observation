@@ -20,6 +20,7 @@ class Fiche extends Model
         'subimtby',
         'date_ajout',
         'type',
+        'avis',
         'status',
         'service',
     ]; 

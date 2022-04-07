@@ -31,7 +31,7 @@ class Counter extends Component
                 ->orWhere('nom_client', 'Like', '%' . $searche . '%')
                 ->orWhere('num_compte', 'Like', '%' . $searche . '%')
                 ->orWhere('type', 'Like', '%' . $searche . '%')
-                ->orWhere('status', 'Like',  $searche . '%')
+                ->orWhere('avis', 'Like',  $searche . '%')
                 ->orWhere('service', 'Like', '%' . $searche . '%');
         })->orderBy('id', 'desc')->paginate(10);
         return view('livewire.counter', ['fiches' => $fiches]);

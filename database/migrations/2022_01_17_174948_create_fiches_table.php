@@ -26,6 +26,7 @@ class CreateFichesTable extends Migration
             $table->string('obs_cs_facturation')->nullable();
             $table->string('obs_cd_si')->nullable();
             $table->string('subimtby')->nullable();
+            $table->string('avis')->nullable();
             $table->string('status')->nullable();
             $table->timestamp('date_ajout')->nullable();
             $table->timestamps();
