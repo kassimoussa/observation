@@ -488,9 +488,9 @@
                             <table class="table table-bordered border-dark " id="">
                                 <tr class="table-dark text-center">
                                     <th>#</th>
-                                    <th colspan="3">Dégrevement</th>
-                                    <th colspan="3">Ajustement</th>
-                                    <th colspan="3">OCC</th>
+                                    <th colspan="4">Dégrevement</th>
+                                    <th colspan="4">Ajustement</th>
+                                    <th colspan="4">OCC</th>
                                     <th>Total</th>
                                 </tr>
                                 <tr class="text-center ">
@@ -498,12 +498,15 @@
                                     <td class="bg-success text-white">{{ $degrevement_i_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $degrevement_i_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $degrevement_i_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $degrevement_i_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $ajustement_i_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $ajustement_i_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $ajustement_i_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $ajustement_i_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $occ_i_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $occ_i_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $occ_i_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $occ_i_annule[3] }} </td>
                                     <td>{{ $internet[3] }} </td>
                                 </tr>
                                 <tr class="text-center ">
@@ -511,12 +514,15 @@
                                     <td class="bg-success text-white">{{ $degrevement_m_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $degrevement_m_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $degrevement_m_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $degrevement_m_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $ajustement_m_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $ajustement_m_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $ajustement_m_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $ajustement_m_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $occ_m_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $occ_m_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $occ_m_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $occ_m_annule[3] }} </td>
                                     <td>{{ $mobile[3] }} </td>
                                 </tr>
                                 <tr class="text-center ">
@@ -524,12 +530,15 @@
                                     <td class="bg-success text-white">{{ $degrevement_f_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $degrevement_f_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $degrevement_f_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $degrevement_f_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $ajustement_f_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $ajustement_f_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $ajustement_f_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $ajustement_f_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $occ_f_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $occ_f_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $occ_f_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $occ_f_annule[3] }} </td>
                                     <td>{{ $fix[3] }} </td>
                                 </tr>
                                 <tr class="text-center ">
@@ -537,12 +546,15 @@
                                     <td class="bg-success text-white">{{ $degrevement_fm_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $degrevement_fm_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $degrevement_fm_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $degrevement_fm_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $ajustement_fm_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $ajustement_fm_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $ajustement_fm_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $ajustement_fm_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $occ_fm_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $occ_fm_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $occ_fm_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $occ_fm_annule[3] }} </td>
                                     <td>{{ $fixmobile[3] }} </td>
                                 </tr>
                                 <tr class="text-center ">
@@ -550,12 +562,15 @@
                                     <td class="bg-success text-white">{{ $degrevement_if_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $degrevement_if_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $degrevement_if_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $degrevement_if_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $ajustement_if_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $ajustement_if_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $ajustement_if_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $ajustement_if_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $occ_if_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $occ_if_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $occ_if_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $occ_if_annule[3] }} </td>
                                     <td>{{ $internetfix[3] }} </td>
                                 </tr>
                                 <tr class="text-center ">
@@ -563,19 +578,22 @@
                                     <td class="bg-success text-white">{{ $degrevement_unk_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $degrevement_unk_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $degrevement_unk_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $degrevement_unk_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $ajustement_unk_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $ajustement_unk_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $ajustement_unk_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $ajustement_unk_annule[3] }} </td>
                                     <td class="bg-success text-white">{{ $occ_unk_fav[3] }} </td>
                                     <td class="bg-danger text-white">{{ $occ_unk_defav[3] }} </td>
                                     <td class="bg-white text-dark">{{ $occ_unk_null[3] }} </td>
+                                    <td class="bg-warning text-dark">{{ $occ_unk_annule[3] }} </td>
                                     <td>{{ $unk[3] }} </td>
                                 </tr>
                                 <tr class="text-center ">
                                     <th class="table-dark   ">Total</th>
-                                    <td colspan="3">{{ $degrevement[3] }} </td>
-                                    <td colspan="3">{{ $ajustement[3] }} </td>
-                                    <td colspan="3">{{ $occ[3] }} </td>
+                                    <td colspan="4">{{ $degrevement[3] }} </td>
+                                    <td colspan="4">{{ $ajustement[3] }} </td>
+                                    <td colspan="4">{{ $occ[3] }} </td>
                                     <td>{{ $rentres[3] }} </td>
                                 </tr>
                             </table>
