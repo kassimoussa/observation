@@ -12,12 +12,22 @@ class Counter extends Component
     public $searche ;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    public $delete_id;
  
-    public function increment()
+    public function deleteFicheConfirm($id)
     {
-        $this->count++;
-        /* session()->flash('message', 'Post successfully updated.');
-        return redirect()->to('/index2'); */
+        //$patient = Patient::where('id', $id)->first();   
+        $this->delete_id = $id;   
+        $this->dispatchBrowserEvent('show-fiche-delete-modal');
+    }
+
+    public function deleteFiche()
+    {
+        Fiche::destroy($this->delete_id);
+        
+        /* $patient = Patient::where('id', $this->delete_id)->first();   
+        $patient->delete;  */
+        session()->flash('success', 'Fiche supprimer avec success ');
     }
 
     public function render()

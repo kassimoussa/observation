@@ -153,6 +153,12 @@ class FicheController extends Controller
             $degrevement_unk_null[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'neon')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $degrevement_unk_annule[$i] = Fiche::where('type', 'Dégrevement')->where('service', 'neon')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
 
+            
+            $degrevement_fav[$i] = Fiche::where('type', 'Dégrevement')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_defav[$i] = Fiche::where('type', 'Dégrevement')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_null[$i] = Fiche::where('type', 'Dégrevement')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $degrevement_annule[$i] = Fiche::where('type', 'Dégrevement')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
 
         }
         for ($i = 1; $i <= 12; $i++) { 
@@ -193,6 +199,11 @@ class FicheController extends Controller
             $ajustement_unk_defav[$i] = Fiche::where('type', 'Ajustement')->where('service', 'neon')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $ajustement_unk_null[$i] = Fiche::where('type', 'Ajustement')->where('service', 'neon')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $ajustement_unk_annule[$i] = Fiche::where('type', 'Ajustement')->where('service', 'neon')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $ajustement_fav[$i] = Fiche::where('type', 'Ajustement')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_defav[$i] = Fiche::where('type', 'Ajustement')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_null[$i] = Fiche::where('type', 'Ajustement')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $ajustement_annule[$i] = Fiche::where('type', 'Ajustement')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
         }
         for ($i = 1; $i <= 12; $i++) { 
             $occ[$i] = Fiche::where('type', 'OCC')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
@@ -232,6 +243,11 @@ class FicheController extends Controller
             $occ_unk_defav[$i] = Fiche::where('type', 'OCC')->where('service', 'neon')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $occ_unk_null[$i] = Fiche::where('type', 'OCC')->where('service', 'neon')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
             $occ_unk_annule[$i] = Fiche::where('type', 'OCC')->where('service', 'neon')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+
+            $occ_fav[$i] = Fiche::where('type', 'OCC')->where('avis', 'Favorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_defav[$i] = Fiche::where('type', 'OCC')->where('avis', 'Defavorable')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_null[$i] = Fiche::where('type', 'OCC')->where('avis', NULL)->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
+            $occ_annule[$i] = Fiche::where('type', 'OCC')->where('avis', 'Annulé')->whereMonth('date_ajout',  $i)->orderby('created_at', 'desc')->count();
         }
 
         
@@ -244,6 +260,7 @@ class FicheController extends Controller
         'degrevement_if_fav', 'degrevement_if_defav', 'degrevement_if_null','degrevement_if_annule',
         'degrevement_fm_fav', 'degrevement_fm_defav', 'degrevement_fm_null','degrevement_fm_annule',
         'degrevement_unk_fav', 'degrevement_unk_defav', 'degrevement_unk_null', 'degrevement_unk_annule',
+        'degrevement_fav', 'degrevement_defav', 'degrevement_null', 'degrevement_annule',
 
         'ajustement','ajustement_m','ajustement_i','ajustement_f', 'ajustement_if','ajustement_fm', 
         'ajustement_i_fav', 'ajustement_i_defav', 'ajustement_i_null', 'ajustement_i_annule',
@@ -252,6 +269,7 @@ class FicheController extends Controller
         'ajustement_if_fav', 'ajustement_if_defav', 'ajustement_if_null', 'ajustement_if_annule',
         'ajustement_fm_fav', 'ajustement_fm_defav', 'ajustement_fm_null', 'ajustement_fm_annule',
         'ajustement_unk_fav', 'ajustement_unk_defav', 'ajustement_unk_null', 'ajustement_unk_annule',
+        'ajustement_fav', 'ajustement_defav', 'ajustement_null', 'ajustement_annule',
 
         'occ','occ_m','occ_i','occ_f', 'occ_if','occ_fm',  'degrevement_i_annule',
         'occ_i_fav', 'occ_i_defav', 'occ_i_null', 'occ_i_annule',
@@ -260,6 +278,7 @@ class FicheController extends Controller
         'occ_if_fav', 'occ_if_defav', 'occ_if_null', 'occ_if_annule',
         'occ_fm_fav', 'occ_fm_defav', 'occ_fm_null', 'occ_fm_annule',
         'occ_unk_fav', 'occ_unk_defav', 'occ_unk_null', 'occ_unk_annule',
+        'occ_fav', 'occ_defav', 'occ_null', 'occ_annule',
         'rentres', 'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 
         'septembre', 'octobre', 'novembre', 'decembre',));
     }

@@ -16,12 +16,14 @@ $user = User::where('id', session('id'))->first();
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sweetalert2.css') }}">
 
     @livewireStyles
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/chart.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2.all.js') }}"></script>
 
 
     {{-- <script src="{{ asset('lib/') }}"></script> --}}
@@ -58,14 +60,18 @@ $user = User::where('id', session('id'))->first();
             padding-top: 6rem
         }
 
-        .dropdown:hover .dropdown-menu {
+        /* .dropdown:hover .dropdown-menu {
             display: block;
             margin-top: 0; // remove the gap so it doesn't close
-        }
+        } */
 
         .dropend:hover .dropdown-menu {
             display: block;
             margin-top: 0; // remove the gap so it doesn't close
+        }
+
+        .warning {
+            color: #ffc107;
         }
 
     </style>
@@ -132,14 +138,16 @@ $user = User::where('id', session('id'))->first();
     </div>
 
 
+    @stack('modals')
 
+    @stack('scripts')
     @livewireScripts
-    <script>
+    {{-- <script>
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
         })
-    </script>
+    </script> --}}
 
 </body>
 
