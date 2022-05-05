@@ -16,17 +16,17 @@
 
 
     <div class="card">
+        @if (session('level') == 1)
         <div class=" card-header d-flex justify-content-end mb-2">
             {{-- <div class="@if (session('level') == 1) {{ 'cm6' }} @endif input-group  mb-3">
                 <span class="input-group-text bg-dark text-white fw-bold ">Recherche</span>
                 <input type="text" class="form-control " wire:model="searche"
                     placeholder="Par N° fiche, N° facture, N° compte,raison sociale, type ou service ">
             </div> --}}
-            @if (session('level') == 1)
+            
                 <a href="newfiche" class="btn btn-primary newf fw-bold">Nouvelle Fiche</a>
-            @endif
-    
         </div>
+        @endif
         <table class="table tablesorter table-sm table-hover datatables" id="datatables">
             <thead class=" text-primary text-center">
                 <th scope="col">N° Fiche</th>
