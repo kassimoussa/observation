@@ -17,10 +17,12 @@ $user = User::where('id', session('id'))->first();
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sweetalert2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
 
     @livewireStyles
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/chart.js') }}"></script>
     <script src="{{ asset('js/sweetalert2.all.js') }}"></script>
@@ -148,6 +150,8 @@ $user = User::where('id', session('id'))->first();
             return new bootstrap.Tooltip(tooltipTriggerEl)
         })
     </script> --}}
+    
+    
 
 </body>
 

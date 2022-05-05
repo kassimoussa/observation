@@ -249,7 +249,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover  " id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -452,7 +452,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -656,7 +656,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover  " id="display">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -859,7 +859,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover display " id="display">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -1062,7 +1062,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover  " id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -1265,7 +1265,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -1671,7 +1671,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -1874,7 +1874,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -2077,7 +2077,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -2279,7 +2279,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -2481,7 +2481,7 @@
                                 </tr>
                             </table>
 
-                            <table class="table table-bordered border-dark table-sm table-hover" id="">
+                            <table class="display table table-bordered border-dark table-sm table-hover" id="">
                                 <thead class="  table-dark text-center">
                                     <th scope="col">N° Fiche</th>
                                     <th scope="col">Nom du client</th>
@@ -2590,4 +2590,16 @@
             $(this).tab('show')
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+        $('display').DataTable( {
+            "paging":   false, 
+            "info":     false,
+            /* "scrollY":        "600px",
+            "scrollCollapse": true, */
+            "filter": false
+        } );
+    } );
+</script>
 @endsection
