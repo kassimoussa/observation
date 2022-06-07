@@ -83,7 +83,7 @@
                             </div>
                             <div class="form-group control-label mb-1 col-md-2">
                                 <label class="control-label">Montant TTC <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" name="mont_facture" required>
+                                <input type="number" step=any class="form-control" name="mont_facture" required>
                             </div>
                             <div class="form-group control-label mb-1 col-md-4">
                                 <label class="control-label">Documents <span class="text-danger"></span></label>
