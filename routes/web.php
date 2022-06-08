@@ -16,9 +16,11 @@ use App\Http\Controllers\FicheController;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('connexion');
-});
+}); */
+
+Route::get('/',  [UserController::class, 'accueil']);
 
 Route::post('check', [UserController::class, 'check'])->name('check');
 Route::post('store', [UserController::class, 'store'])->name('store');

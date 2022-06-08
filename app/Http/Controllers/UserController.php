@@ -15,6 +15,15 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function accueil(Request $request){
+        if ($request->session()->has('level')) {
+            return redirect('index');
+        } else{
+            return view('connexion');
+        }
+        
+    }
+
     public function check(Request $request)
     {
         //validate the input

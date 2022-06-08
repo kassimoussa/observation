@@ -27,7 +27,7 @@
                 <a href="newfiche" class="btn btn-primary newf fw-bold">Nouvelle Fiche</a>
         </div>
         @endif
-        <table class="table tablesorter table-sm table-hover datatables" id="datatables">
+        <table class="table tablesorter table-sm table-hover datatables align-middle" id="datatables">
             <thead class=" text-primary text-center">
                 <th scope="col">N° Fiche</th>
                 <th scope="col">Nom du client</th>
