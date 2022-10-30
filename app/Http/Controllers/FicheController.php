@@ -39,6 +39,9 @@ class FicheController extends Controller
             $nv2f = Fiche::where('nivo', "2")->where('avis_nv2', 'OK')->count();
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
+        } elseif ($level == 4) { 
+             $fiches =  Fiche::where('trans', "dsi")->get();
+             return view('4.index', compact('fiches'));
         }
 
 
