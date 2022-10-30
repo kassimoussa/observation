@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fiche extends Model
+class Fiche2 extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -32,4 +32,9 @@ class Fiche extends Model
         'assignedto',
         'nivo'
     ];
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class, 'numero_fiche');
+    }
 }

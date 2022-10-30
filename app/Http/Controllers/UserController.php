@@ -21,7 +21,7 @@ class UserController extends Controller
         } else{
             return view('connexion');
         }
-        
+         
     }
 
     public function check(Request $request)
@@ -43,10 +43,10 @@ class UserController extends Controller
                 $request->session()->put('level', $user->level);
                 return redirect('index');
             } else {
-                return back()->with('fail', 'Invalide password');
+                return back()->with('fail', 'Mot de passe incorrect');
             }
         } else {
-            return back()->with('fail', 'No account found for this email');
+            return back()->with('fail', 'Pas de compte trouvé pour cet email');
         }
     }
 
@@ -61,7 +61,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $level = session('level');
-        $url = $level . '.index';
+        $url = $level . '.index2';
         $search = $request['search'] ?? "";
         if ($request->has('search')) {
             $search = $request['search'];

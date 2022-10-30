@@ -1,20 +1,11 @@
-@extends('layouts.app', ['page' => 'Nouvelle fiche', 'pageSlug' => 'list', 'sup' => 'fiche'])
+@extends('layouts.app', ['page' => 'Nouvelle fiche', 'pageSlug' => 'create', 'sup' => 'fiche'])
 @section('content')
     <div class="row mt-3">
         <div class="d-flex justify-content-between mb-3 ">
             <h3 class="fw-bold">Nouvelle Fiche </h3>
             <a href="{{ url('index') }}" class="btn   btn-primary  fw-bold"> <i class="fas fa-arrow-left"></i> RETOURNER</a>
         </div>
-        <div class="row">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+        <div class="row"> 
 
             @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-dismissible fade show " role="alert">
@@ -29,7 +20,7 @@
                 </div>
             @endif
 
-            <form action="store" role="form" method="post" class="form" enctype="multipart/form-data">
+            <form action="/fiches/store" role="form" method="post" class="form" enctype="multipart/form-data">
                 @csrf
 
                 <div class="card col mb-3">
@@ -86,25 +77,33 @@
                             </div>
                             <div class="form-group control-label mb-1 col-md-4">
                                 <label class="control-label">Documents <span class="text-danger"></span></label>
-                                <input class="form-control" type="file" name="files[]" id="formFile" multiple>
+                                <input class="form-control" type="file" name="files[]" accept=".pdf" multiple>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="card col mb-3">
-                    <h4 class="card-header text-center bg-dark text-white">Observation Chef de Service Facturation</h4>
+                    <h4 class="card-header text-center bg-dark text-white">Assignation </h4>
                     <div class="card-body">
-                        <textarea class="form-control" aria-label="With textarea" name="obs_cs_facturation" rows="8"> </textarea>
+                        <div class="form-group control-label mb-1 ">
+                            <label class="control-label">User <span class="text-danger">*</span></label>
+                            <select class="form-select js-select2" name="assignedto" required>
+                                <option value="" disabled selected>Select user</option>
+                                @foreach ($users as $user )
+                                      <option value="{{ $user->username }}">{{ $user->name }}</option>
+                                @endforeach 
+                            </select>
+                        </div>
                     </div>
-                </div>
+                </div> 
 
-                {{-- <div class="card col mb-3">
-                    <h4 class="card-header text-center bg-dark text-white">Avis et Observation Chef de Division SI</h4>
+                <div class="card col mb-3">
+                    <h4 class="card-header text-center bg-dark text-white">Observation </h4>
                     <div class="card-body">
-                        <textarea class="form-control" aria-label="With textarea" name="obs_cd_si" rows="2"> </textarea>
+                        <textarea class="form-control" aria-label="With textarea" name="obs_nv1" rows="8"> </textarea>
                     </div>
-                </div> --}}
+                </div> 
 
                 <div class="row mb-3">
                     <div class=" form-group text-center">

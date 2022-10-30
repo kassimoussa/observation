@@ -238,7 +238,7 @@ use App\Models\Direction;
         <h4 style="text-decoration: underline"> OBSERVATION CHEF DE SERVICE FACTURATION </h4>
 
         <div class="card">
-            <p> {{ $fiche->obs_cs_facturation }}</p>
+            <p> {{ $fiche->obs_nv2 }}</p>
         </div>
 
         <br>
@@ -246,7 +246,7 @@ use App\Models\Direction;
         <h4 style="text-decoration: underline"> AVIS ET OBSERVATION CHEF DE DIVISION SI </h4>
 
         <div class="card">
-            <p>{{ $fiche->obs_cd_si }}</p>
+            <p>{{ $fiche->obs_nv3 }}</p>
         </div>
 
     </div>

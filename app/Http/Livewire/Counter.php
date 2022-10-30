@@ -25,8 +25,6 @@ class Counter extends Component
     {
         Fiche::destroy($this->delete_id);
         
-        /* $patient = Patient::where('id', $this->delete_id)->first();   
-        $patient->delete;  */
         session()->flash('success', 'Fiche supprimer avec success ');
     }
 

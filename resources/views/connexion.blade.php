@@ -24,7 +24,7 @@
 				<form class="login100-form validate-form" action="{{ route('check') }}" method="POST">
                     @csrf
 					<span class="login100-form-title p-b-33">
-						Fiche D'Observation
+						Dégrevement
 					</span>
 
 					<div class="wrap-input100 validate-input" >
@@ -53,26 +53,6 @@
                          
                         {{-- <a href="forgot" class="linky" >Mot de passe oublié ?</a>  --}}
                     </div>
-
-					{{-- <div class="text-center p-t-45 p-b-4">
-						<span class="txt1">
-							Forgot
-						</span>
-
-						<a href="#" class="txt2 hov1">
-							Username / Password?
-						</a>
-					</div>
-
-					<div class="text-center">
-						<span class="txt1">
-							Create an account?
-						</span>
-
-						<a href="#" class="txt2 hov1">
-							Sign up
-						</a>
-					</div> --}}
 				</form>
 			</div>
 		</div>

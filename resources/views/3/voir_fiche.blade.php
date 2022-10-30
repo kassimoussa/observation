@@ -188,71 +188,62 @@
             </div>
         </div>
 
-        <form action="{{ url('/fiches/update_nv2', $fiche) }}" method="post" class="d-inline">
-            @csrf
-            @method('PUT')
-            <div class="card  mb-4">
-                <div class="card-header bg-dark">
-                    <div class="row justify-content-center">
-                        <div class=" col-8 d-flex justify-content-end">
-                            <h4 class="  text-center  text-white">Observation du Service Facturation</h4>
-                        </div>
-
-                        <div class=" col-4  d-flex justify-content-end">
-                            <button class="btn btn-transparent btn-xs btn-nv2" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#nv2Collapse" aria-expanded="false" aria-controls="nv2Collapse">
-                                <i class="fas fa-plus" style="color: white"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row mb-2 ">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <h4 class="card-header  text-center bg-dark text-white">Commentaire</h4>
-                                <div class="card-body">
-                                    <textarea class="form-control textarea mb-2" aria-label="With textarea" name="obs_nv2">{{ $fiche->obs_nv2 }} </textarea>
-                                </div>
+        <div class="card  mb-3">
+            <h4 class="card-header text-center bg-dark text-white">Observation du Service Facturation</h4>
+            <div class="card-body">
+                <div class="row mb-2 ">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h4 class="card-header  text-center bg-dark text-white">Commentaire</h4>
+                            <div class="card-body">
+                                <textarea class="form-control textarea mb-2" aria-label="With textarea" name="obs_nv2">{{ $fiche->obs_nv2 }} </textarea>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6">
-                            <div class="card">
-                                <h4 class="card-header  text-center bg-dark text-white">Avis</h4>
-                                <div class="card-body">
-                                    <div class="mb-2 d-flex justify-content-between">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="avis_nv2"
-                                                id="nv2_ok" value="OK"
-                                                @if ($fiche->avis_nv2 == 'OK') checked @else @endif>
-                                            <label class="form-check-label" for="nv2_ok">Favorable</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="avis_nv2"
-                                                id="nv2_no" value="NO"
-                                                @if ($fiche->avis_nv2 == 'NO') checked @else @endif>
-                                            <label class="form-check-label" for="nv2_no">Défavorable</label>
-                                        </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h4 class="card-header  text-center bg-dark text-white">Avis</h4>
+                            <div class="card-body">
+                                <div class="mb-2 d-flex justify-content-between">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="avis_nv2" id="nv2_ok"
+                                            value="OK" @if ($fiche->avis_nv2 == 'OK') checked @else disabled @endif>
+                                        <label class="form-check-label" for="nv2_ok">Favorable</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="avis_nv2" id="nv2_no"
+                                            value="NO" @if ($fiche->avis_nv2 == 'NO') checked @else disabled @endif>
+                                        <label class="form-check-label" for="nv2_no">Défavorable</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
-                <div class="card-footer collapse" id="nv2Collapse">
-                    <div class="d-flex justify-content-center ">
-                        <button class="btn btn-primary fw-bold me-4" type="submit">Enregistrer</button>
-                        <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
-                    </div>
+
                 </div>
             </div>
-        </form>
+        </div>
 
-        @if ($fiche->obs_nv3 != null || $fiche->avis_nv3 != null)
-            <div class="card col mb-3">
-                <h4 class="card-header text-center bg-dark text-white"> Observation Chef de Division SI</h4>
+        <form action="{{ url('/fiches/update_nv3', $fiche) }}" method="post" class="d-inline">
+            @csrf
+            @method('PUT')
+            <div class="card  mb-4">
+                <div class="card-header bg-dark">
+                    <div class="row justify-content-center">
+                        <div class=" col-8 d-flex justify-content-end">
+                            <h4 class="  text-center  text-white">Observation Chef de Division SI</h4>
+                        </div>
+
+                        <div class=" col-4  d-flex justify-content-end">
+                            <button class="btn btn-transparent btn-xs btn-nv3" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#nv3Collapse" aria-expanded="false" aria-controls="nv3Collapse">
+                                <i class="fas fa-plus" style="color: white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body">
                     <div class="row mb-2 ">
                         <div class="col-md-6">
@@ -263,19 +254,19 @@
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="avis_nv3"
                                                 id="nv3_ok" value="OK"
-                                                @if ($fiche->avis_nv3 == 'OK') checked  @else disabled @endif>
+                                                @if ($fiche->avis_nv3 == 'OK') checked  @else   @endif>
                                             <label class="form-check-label" for="nv3_ok">Favorable</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="avis_nv3"
                                                 id="nv3_no" value="NO"
-                                                @if ($fiche->avis_nv3 == 'NO') checked  @else disabled @endif>
+                                                @if ($fiche->avis_nv3 == 'NO') checked  @else   @endif>
                                             <label class="form-check-label" for="nv3_no">Défavorable</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="avis_nv3"
                                                 id="nv3_can" value="CANCEL"
-                                                @if ($fiche->avis_nv3 == 'CANCEL') checked @else disabled @endif>
+                                                @if ($fiche->avis_nv3 == 'CANCEL') checked @else   @endif>
                                             <label class="form-check-label" for="nv3_can">Annulé</label>
                                         </div>
                                     </div>
@@ -291,19 +282,19 @@
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="clo"
                                                 value="Cloturé"
-                                                @if ($fiche->status == 'Cloturé') checked @else disabled @endif>
+                                                @if ($fiche->status == 'Cloturé') checked @else   @endif>
                                             <label class="form-check-label" for="clo">Cloturé</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="encours"
                                                 value="En cours"
-                                                @if ($fiche->status == 'En cours') checked @else disabled @endif>
+                                                @if ($fiche->status == 'En cours') checked @else   @endif>
                                             <label class="form-check-label" for="encours">En cours</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="status" id="rej"
                                                 value="Rejeté"
-                                                @if ($fiche->status == 'Rejeté') checked @else disabled @endif>
+                                                @if ($fiche->status == 'Rejeté') checked @else   @endif>
                                             <label class="form-check-label" for="rej">Rejeté</label>
                                         </div>
                                     </div>
@@ -320,10 +311,16 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+                <div class="card-footer collapse" id="nv3Collapse">
+                    <div class="d-flex justify-content-center ">
+                        <button class="btn btn-primary fw-bold me-4" type="submit">Enregistrer</button>
+                        <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
+                    </div>
                 </div>
             </div>
-        @endif
-
+        </form>
 
     </div>
 
@@ -354,7 +351,7 @@
     </style>
 
     <script>
-        $('.btn-nv2').click(function() {
+        $('.btn-nv3').click(function() {
             $(this).find('i').toggleClass('fas fa-minus fas fa-plus')
         });
     </script>

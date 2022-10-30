@@ -128,12 +128,7 @@
                 @endif
             </tbody>
         </table>
-        {{-- <div class="d-flex justify-content-evenly">
-            {{ $fiches->links() }}
-        </div> --}}
-
-
-
+      
         <div wire:ignore.self class="modal fade" id="deleteFicheModal" tabindex="-1"
             aria-labelledby="deleteFicheModal" aria-hidden="true">
             <div class="modal-dialog   modal-dialog-centered  " role="document">
