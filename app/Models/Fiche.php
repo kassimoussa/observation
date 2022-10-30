@@ -30,6 +30,7 @@ class Fiche extends Model
         'date_dc',
         'date_clos',
         'assignedto',
-        'nivo'
+        'nivo',
+        'trans'
     ];
 }

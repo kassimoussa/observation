@@ -71,7 +71,7 @@
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
                                 @if (session('level') == '1' || session('level') == '3')
-                                    <td>{{ $fiche->assignedto }}</td>
+                                    <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 @endif
                                 {{-- <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
                                 <td>{{ $fiche->status }} </td> --}}
@@ -84,12 +84,12 @@
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
-                                            <a href="{{ url('/fiches/show', $fiche) }}" class="btn btn-link dropdown-item"
+                                            <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link dropdown-item"
                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche ">
                                                 <i class="fas fa-eye"></i> Voir la fiche
                                             </a>
                                             @if (session('level') == '1')
-                                                <a href="{{ url('/fiches/edit', $fiche) }}"
+                                                <a href="{{ url('fiches/edit', $fiche) }}"
                                                     class="btn btn-link dropdown-item" data-bs-toggle="tooltip"
                                                     data-bs-placement="bottom" title="Modifier la fiche ">
                                                     <i class="fas fa-edit"></i> Modifier la fiche
@@ -119,7 +119,7 @@
                                             <h5 class="text-center">Etes-vous sûre de supprimer la fiche</h5>
                                         </div>
                                         <div class="modal-footer d-flex justify-content-center">
-                                            <form action="{{ url('/fiches/delete', $fiche) }}" method="post"
+                                            <form action="{{ url('fiches/delete', $fiche) }}" method="post"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('delete')

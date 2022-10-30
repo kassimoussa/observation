@@ -244,7 +244,7 @@ class FicheController extends Controller
     {
         $fiche->update($request->all());
         /* $fiche->update(['status' => $request->new_password]); */
-        return redirect('index')->with('success', 'Modification réussie');
+        return redirect('fiches/new-fiches-list')->with('success', 'Modification réussie');
     }
 
     public function update_nv2(Request $request, Fiche $fiche)
@@ -274,8 +274,18 @@ class FicheController extends Controller
 
     public function transmettre(Request $request, Fiche $fiche)
     {
+        $trans = $request->trans;
+
+        if($trans == "dsi")
+        {
+            $date = "date_dsi";
+        } else {
+            $date = "date_dc";
+        }
+
         $fiche->update([  
-            'date_dc' => Carbon::now(),
+            'trans' => $trans ,
+            $date => Carbon::now(),
             'nivo' => "4",
         ]);
         /* $fiche->update(['status' => $request->new_password]); */
