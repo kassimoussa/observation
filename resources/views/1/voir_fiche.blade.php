@@ -254,8 +254,8 @@
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="avis_nv3" id="nv3_can"
-                                                value="CANCEL"
-                                                @if ($fiche->avis_nv3 == 'CANCEL') checked @else disabled @endif>
+                                                value="Annulé"
+                                                @if ($fiche->avis_nv3 == 'Annulé') checked @else disabled @endif>
                                             <label class="form-check-label" for="nv3_can">Annulé</label>
                                         </div>
                                     </div>

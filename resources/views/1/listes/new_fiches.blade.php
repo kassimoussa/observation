@@ -29,7 +29,9 @@
                     <th>N° Compte</th>
                     <th>Type</th>
                     <th>Service</th>
-                    <th>TO</th> 
+                    @if (session('level') == '1' || session('level') == '3')
+                        <th>TO</th>
+                    @endif
                     {{-- <th>Avis</th>
                     <th>Status</th> --}}
                     <th>Action</th>
@@ -68,7 +70,9 @@
                                 <td>{{ $fiche->num_compte }}</td>
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
-                                <td>{{ $fiche->assignedto }}</td>
+                                @if (session('level') == '1' || session('level') == '3')
+                                    <td>{{ $fiche->assignedto }}</td>
+                                @endif
                                 {{-- <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
                                 <td>{{ $fiche->status }} </td> --}}
                                 <td class="td-actions ">
@@ -86,9 +90,8 @@
                                             </a>
                                             @if (session('level') == '1')
                                                 <a href="{{ url('/fiches/edit', $fiche) }}"
-                                                    class="btn btn-link dropdown-item"
-                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                    title="Modifier la fiche ">
+                                                    class="btn btn-link dropdown-item" data-bs-toggle="tooltip"
+                                                    data-bs-placement="bottom" title="Modifier la fiche ">
                                                     <i class="fas fa-edit"></i> Modifier la fiche
                                                 </a>
 
