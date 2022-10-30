@@ -116,7 +116,7 @@
                     @if (session('level') == 1)
                         <li class="nav-item">
                             <a class="nav-link nav_link  @if ($pageSlug == 'create') {{ 'activee' }} @endif "
-                                href="{{ url('/fiches/create') }}">Ajouter</a>
+                                href="{{ url('fiches/create') }}">Ajouter</a>
                         </li>
                     @endif
 
