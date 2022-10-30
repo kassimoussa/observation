@@ -30,7 +30,7 @@
                     <th>Type</th>
                     <th>Service</th>
                     <th>Avis</th>
-                    @if ((session('level') == '1') || (session('level') == '3'))
+                    @if (session('level') == '1' || session('level') == '3')
                         <th>TO</th>
                     @endif
                     {{-- <th>Status</th> --}}
@@ -41,6 +41,8 @@
                         @php
                             $cnt = 1;
                             $delmodal = 'del' . $cnt;
+                            $tdcmodal = 'tdc' . $cnt;
+                            $tdsimodal = 'tdsi' . $cnt;
                         @endphp
 
                         @foreach ($fiches as $key => $fiche)
@@ -72,7 +74,7 @@
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
                                 <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
-                                @if ((session('level') == '1') || (session('level')== '3'))
+                                @if (session('level') == '1' || session('level') == '3')
                                     <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 @endif
                                 {{--  <td>{{ $fiche->status }} </td> --}}
@@ -103,6 +105,15 @@
                                                         data-bs-placement="bottom" title="Supprimer la fiche "></i>
                                                     Supprimer la fiche
                                                 </button>
+
+                                                @if ($fiche->avis_nv2 == 'NO')
+                                                    <button type="button" class="btn btn-link dropdown-item"
+                                                        data-bs-toggle="modal" data-bs-target="#{{ $tdcmodal }}">
+                                                        <i class="fas fa-paper-plane" data-bs-toggle="tooltip"
+                                                            data-bs-placement="bottom" title="Transmettre au DC"></i>
+                                                        Transmettre à la DC
+                                                    </button>
+                                                @endif
                                             @endif
                                         </div>
                                     </div>
@@ -133,9 +144,66 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="modal fade" id="{{ $tdcmodal }}" tabindex="-1"
+                                aria-labelledby="dcdeleteFicheModal" aria-hidden="true">
+                                <div class="modal-dialog   modal-dialog-centered  " role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header d-flex justify-content-center">
+                                            <h4>Transmettre à la Direction Commerciale </h4>
+                                        </div>
+                                        <div class="modal-body ">
+                                            <h5 class="text-center"><i class="fas fa-exclamation-circle fa-3x info"></i>
+                                            </h5>
+                                            <h5 class="text-center">Etes-vous sûre de passer la fiche à la DC ?</h5>
+                                        </div>
+                                        <div class="modal-footer d-flex justify-content-center">
+                                            <form action="{{ url('fiches/transmettre', $fiche) }}" method="post"
+                                                class="d-inline">
+                                                @csrf
+                                                @method('put')
+                                                <button class="btn btn-primary fw-bold" type="submit">Soumettre</button>
+                                                <button type="reset" class="btn btn-outline-danger  fw-bold"
+                                                    data-bs-dismiss="modal">Annuler</button>
+                                                <input type="text" name="trans" value="dc" hidden>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="{{ $tdsimodal }}" tabindex="-1" aria-labelledby="dsiModal"
+                                aria-hidden="true">
+                                <div class="modal-dialog   modal-dialog-centered  " role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header d-flex justify-content-center">
+                                            <h4>Transmettre à la DSI </h4>
+                                        </div>
+                                        <div class="modal-body ">
+                                            <h5 class="text-center"><i class="fas fa-exclamation-circle fa-3x info"></i>
+                                            </h5>
+                                            <h5 class="text-center">Etes-vous sûre de passer la fiche à la DSI ?</h5>
+                                        </div>
+                                        <div class="modal-footer d-flex justify-content-center">
+                                            <form action="{{ url('fiches/transmettre', $fiche) }}" method="post"
+                                                class="d-inline">
+                                                @csrf
+                                                @method('put')
+                                                <button class="btn btn-primary fw-bold" type="submit">Soumettre</button>
+                                                <button type="reset" class="btn btn-outline-danger  fw-bold"
+                                                    data-bs-dismiss="modal">Annuler</button>
+                                                <input type="text" name="trans" value="dsi" hidden>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             @php
                                 $cnt = $cnt + 1;
                                 $delmodal = 'del' . $cnt;
+                                $tdcmodal = 'tdc' . $cnt;
+                                $tdsimodal = 'tdsi' . $cnt;
                             @endphp
                         @endforeach
                     @else
