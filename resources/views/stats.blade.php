@@ -1,7 +1,7 @@
 @extends('layouts.app', ['page' => 'Statistique', 'pageSlug' => 'stats', 'sup' => ''])
 @section('content')
 
-    <div class="row mt-1">
+    <div class="col mt-1">
 
         <div class="d-flex justify-content-between mt-3 mb-4">
             {{-- <h3 class="over-title mb-2">Statistique <span class="text-bold" id="title"> </span>
@@ -25,20 +25,20 @@
 
         <div class="card mb-4 ccal ">
             <div class="card-header  ">
-                <ul class="nav nav-tabs card-header-tabs" id="rentrees" role="tablist">
+                <ul class="nav nav-tabs nav-justified card-header-tabs" id="rentrees" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '01') {{ 'active' }} @else @endif"
                             href="#janvier" role="tab" aria-controls="janvier" aria-selected="true" > 
                             Janvier <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[1] }}
-                              </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                              </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '02') {{ 'active' }} @else @endif"
                             href="#fevrier" role="tab" aria-controls="fevrier" aria-selected="false" >
                             Février <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[2] }}
-                            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '03') {{ 'active' }} @else @endif     "
@@ -46,7 +46,7 @@
                             title="Total = {{ $rentres[3] }}" --}}>Mars 
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[3] }}
-                              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              </span> 
                         </a>
                     </li>
                     <li class="nav-item">
@@ -55,7 +55,7 @@
                             title="Total = {{ $rentres[4] }}" --}}>Avril
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[4] }}
-                              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              </span> 
                             </a>
                     </li>
                     <li class="nav-item">
@@ -63,56 +63,56 @@
                             href="#mai" role="tab" aria-controls="mai" aria-selected="false" >Mai
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[5] }}
-                              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                              </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '06') {{ 'active' }} @else @endif"
                             href="#juin" role="tab" aria-controls="juin" aria-selected="false" >Juin
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[6] }}
-                              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                              </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '07') {{ 'active' }} @else @endif"
                             href="#juillet" role="tab" aria-controls="juillet" aria-selected="false" >Juillet 
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[7] }}
-                              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                              </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '08') {{ 'active' }} @else @endif"
                             href="#aout" role="tab" aria-controls="aout" aria-selected="false" >Août
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[8] }}
-                              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                              </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '09') {{ 'active' }} @else @endif"
                             href="#septembre" role="tab" aria-controls="septembre" aria-selected="false" >Septembre
                              <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[9] }}
-                            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '10') {{ 'active' }} @else @endif"
                             href="#octobre" role="tab" aria-controls="octobre" aria-selected="false" >Octobre 
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[10] }}
-                            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '11') {{ 'active' }} @else @endif"
                             href="#novembre" role="tab" aria-controls="novembre" aria-selected="false" >Novembre 
                             <span class="position-absolute top-1 start-1   badge  bg-primary      ">
                                 {{ $rentres[11] }}
-                            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </span> </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold @if (date('m') == '12') {{ 'active' }} @else @endif"
                             href="#decembre" role="tab" aria-controls="decembre" aria-selected="false" >Décembre 
                             <span class="position-absolute top-1 start-10   badge  bg-primary      ">
                                 {{ $rentres[12] }}
-                            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </span> </a>
                     </li>
                 </ul>
             </div>
@@ -297,7 +297,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -500,7 +500,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -704,7 +704,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -907,7 +907,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -1110,7 +1110,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -1313,7 +1313,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -1516,7 +1516,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -1719,7 +1719,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -1922,7 +1922,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -2124,7 +2124,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -2326,7 +2326,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -2528,7 +2528,7 @@
                                                 <td class="bg-{{ $bg }} text-{{ $txt }}">
                                                     {{ $avis }}</td>
                                                 <td class="td-actions ">
-                                                    <a href="{{ url('/show', $fiche) }}" class="btn btn-link"
+                                                    <a href="{{ url('fiches/show', $fiche) }}" class="btn btn-link"
                                                         data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                         title="Voir la fiche ">
                                                         <i class="fas fa-eye"></i>
@@ -2587,7 +2587,7 @@
     <script>
         $('#rentrees a').on('click', function(e) {
             e.preventDefault()
-            $(this).tab('show')
+            $(this).tab(fiches'show')
         });
     </script>
 
