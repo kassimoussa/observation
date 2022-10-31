@@ -28,6 +28,8 @@ class Fiche extends Model
         'date_nv2',
         'date_nv3',
         'date_dc',
+        'date_dg',
+        'date_dsi',
         'date_clos',
         'assignedto',
         'nivo',

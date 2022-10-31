@@ -278,12 +278,7 @@ class FicheController extends Controller
     {
         $trans = $request->trans;
 
-        if($trans == "dsi")
-        {
-            $date = "date_dsi";
-        } else {
-            $date = "date_dc";
-        }
+        $date = "date_".$trans;
 
         $fiche->update([  
             'trans' => $trans ,

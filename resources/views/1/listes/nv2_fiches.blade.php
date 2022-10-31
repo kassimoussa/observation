@@ -42,7 +42,8 @@
                             $cnt = 1;
                             $delmodal = 'del' . $cnt;
                             $tdcmodal = 'tdc' . $cnt;
-                            $tdsimodal = 'tdsi' . $cnt; //reassignermodal
+                            $tdsimodal = 'tdsi' . $cnt; 
+                            $transmodal = 'trans' . $cnt;
                             $reassignermodal = 'reas' . $cnt;
                         @endphp
 
@@ -122,6 +123,12 @@
                                                     <i class="fas fa-share-alt" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Réassigner"></i>
                                                     Réassigner
+                                                </button>
+                                                <button type="button" class="btn btn-link dropdown-item"
+                                                    data-bs-toggle="modal" data-bs-target="#{{ $transmodal }}">
+                                                    <i class="fas fa-paper-plane" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title="Transmettre"></i>
+                                                    Transmettre
                                                 </button>
                                             @endif
                                         </div>
@@ -210,7 +217,7 @@
 
 
                             <div class="modal fade" id="{{ $reassignermodal }}" tabindex="-1"
-                                aria-labelledby="tdcFicheModal" aria-hidden="true">
+                                aria-labelledby="reasFicheModal" aria-hidden="true">
                                 <div class="modal-dialog   modal-dialog-centered  " role="document">
                                     <div class="modal-content">
                                         <div class="modal-header d-flex justify-content-center">
@@ -248,12 +255,46 @@
                                 </div>
                             </div>
 
+                            <div class="modal fade" id="{{ $transmodal }}" tabindex="-1"
+                                aria-labelledby="transModal" aria-hidden="true">
+                                <div class="modal-dialog   modal-dialog-centered  " role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header d-flex justify-content-center">
+                                            <h4>Transmettre la fiche</h4>
+                                        </div>
+                                        <form action="{{ url('fiches/transmettre', $fiche) }}" method="post"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('put')
+                                            <div class="modal-body ">
+                                                <div class="form-group control-label mb-1 ">
+                                                    <label class="control-label">Direction <span
+                                                            class="text-danger">*</span></label>
+                                                    <select class="form-select js-select2" name="trans" required>
+                                                        <option value="" disabled selected>Select user</option> 
+                                                        <option value="dsi">DSI</option>
+                                                        <option value="dc">DC</option>
+                                                        <option value="dg">DG</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button class="btn btn-primary fw-bold" type="submit">Soumettre</button>
+                                                <button type="reset" class="btn btn-outline-danger  fw-bold"
+                                                    data-bs-dismiss="modal">Annuler</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                             @php
                                 $cnt = $cnt + 1;
                                 $delmodal = 'del' . $cnt;
                                 $tdcmodal = 'tdc' . $cnt;
                                 $tdsimodal = 'tdsi' . $cnt;
                                 $reassignermodal = 'reas' . $cnt;
+                                $transmodal = 'trans' . $cnt;
                             @endphp
                         @endforeach
                     @else
