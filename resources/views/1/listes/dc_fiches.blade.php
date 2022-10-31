@@ -74,7 +74,7 @@
                                 <td>{{ $fiche->num_compte }}</td>
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
-                                <td>{{ $avis }}</td>
+                                <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
                                 <td>{{ $fiche->status }} </td>
                                 <td>{{ strtoupper($fiche->trans) }}</td>
                                 @if (session('level') == '1' || session('level') == '3')
