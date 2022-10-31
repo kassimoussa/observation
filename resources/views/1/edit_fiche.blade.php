@@ -6,7 +6,7 @@
             <a href="{{ url('index') }}" class="btn   btn-primary  fw-bold"> <i class="fas fa-arrow-left"></i> RETOURNER</a>
         </div>
 
-        <form action="{{ url('/fiches/update', $fiche) }}" role="form" method="post" class="form">
+        <form action="{{ url('fiches/update', $fiche) }}" role="form" method="post" class="form">
             @csrf
             @method('PUT')
             <div class="card col mb-3">

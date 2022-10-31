@@ -188,7 +188,7 @@
             </div>
         </div>
 
-        <form action="{{ url('/fiches/update_nv2', $fiche) }}" method="post" class="d-inline">
+        <form action="{{ url('fiches/update_nv2', $fiche) }}" method="post" class="d-inline">
             @csrf
             @method('PUT')
             <div class="card  mb-4">
