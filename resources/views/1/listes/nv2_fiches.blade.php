@@ -271,7 +271,7 @@
                                                     <label class="control-label">Direction <span
                                                             class="text-danger">*</span></label>
                                                     <select class="form-select js-select2" name="trans" required>
-                                                        <option value="" disabled selected>Select user</option> 
+                                                        <option value="" disabled selected>Select Direction</option> 
                                                         <option value="dsi">DSI</option>
                                                         <option value="dc">DC</option>
                                                         <option value="dg">DG</option>
