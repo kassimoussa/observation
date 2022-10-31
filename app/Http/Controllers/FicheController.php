@@ -36,7 +36,7 @@ class FicheController extends Controller
             $dcf = Fiche::where('nivo', "4")->where('assignedto', $username)->count();
         } elseif ($level == 3) { 
             $nf = Fiche::where('nivo', "1")->count();
-            $nv2f = Fiche::where('nivo', "2")->where('avis_nv2', 'OK')->count();
+            $nv2f = Fiche::where('nivo', "2")->count();
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
         } elseif ($level == 4) { 
@@ -70,6 +70,7 @@ class FicheController extends Controller
 
     public function new_fiches()
     {
+        $users = User::where('level', '2')->get();
         $level = session('level');
         $username = session('username');
         if ($level == 1) {
@@ -77,13 +78,10 @@ class FicheController extends Controller
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "1")->where('assignedto', $username)->get();
         }elseif ($level == 3) { 
-            $nf = Fiche::where('nivo', "1")->count();
-            $nv2f = Fiche::where('nivo', "2")->where('avis_nv2', 'OK')->count();
-            $nv3f = Fiche::where('nivo', "3")->count();
-            $dcf = Fiche::where('nivo', "4")->count();
+            $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
         }
 
-        return view('1.listes.new_fiches', compact('fiches'));
+        return view('1.listes.new_fiches', compact('fiches', 'users'));
     }
 
     public function new_fiches_nv2()
@@ -97,6 +95,7 @@ class FicheController extends Controller
 
     public function nv2_fiches()
     {
+        $users = User::where('level', '2')->get();
         $level = session('level');
         $username = session('username');
         if ($level == 1) {
@@ -104,10 +103,10 @@ class FicheController extends Controller
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "2")->where('assignedto', $username)->get();
         } elseif ($level == 3) {
-            $fiches =  Fiche::where('nivo', "2")->where('avis_nv2', 'OK')->get();
+            $fiches =  Fiche::where('nivo', "2")->get();
         }
 
-        return view('1.listes.nv2_fiches', compact('fiches'));
+        return view('1.listes.nv2_fiches', compact('fiches', 'users'));
     }
 
     public function nv3_fiches()
@@ -247,7 +246,7 @@ class FicheController extends Controller
     {
         $fiche->update($request->all());
         /* $fiche->update(['status' => $request->new_password]); */
-        return redirect('fiches/new-fiches-list')->with('success', 'Modification réussie');
+        return back()->with('success', 'Modification réussie');
     }
 
     public function update_nv2(Request $request, Fiche $fiche)

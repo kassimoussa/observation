@@ -107,7 +107,7 @@
                                                 <button type="button" class="btn btn-link dropdown-item"
                                                     data-bs-toggle="modal" data-bs-target="#{{ $tdcmodal }}">
                                                     <i class="fas fa-share-alt" data-bs-toggle="tooltip"
-                                                        data-bs-placement="bottom" title="R&assigner"></i>
+                                                        data-bs-placement="bottom" title="Réassigner"></i>
                                                     Réassigner
                                                 </button>
                                             @endif

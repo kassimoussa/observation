@@ -42,7 +42,8 @@
                             $cnt = 1;
                             $delmodal = 'del' . $cnt;
                             $tdcmodal = 'tdc' . $cnt;
-                            $tdsimodal = 'tdsi' . $cnt;
+                            $tdsimodal = 'tdsi' . $cnt; //reassignermodal
+                            $reassignermodal = 'reas' . $cnt;
                         @endphp
 
                         @foreach ($fiches as $key => $fiche)
@@ -114,6 +115,14 @@
                                                         Transmettre à la DC
                                                     </button>
                                                 @endif
+                                            @endif
+                                            @if (session('level') == 3)
+                                                <button type="button" class="btn btn-link dropdown-item"
+                                                    data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">
+                                                    <i class="fas fa-share-alt" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title="Réassigner"></i>
+                                                    Réassigner
+                                                </button>
                                             @endif
                                         </div>
                                     </div>
@@ -199,11 +208,52 @@
                                 </div>
                             </div>
 
+
+                            <div class="modal fade" id="{{ $reassignermodal }}" tabindex="-1"
+                                aria-labelledby="tdcFicheModal" aria-hidden="true">
+                                <div class="modal-dialog   modal-dialog-centered  " role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header d-flex justify-content-center">
+                                            <h4>Réassigner la fiche</h4>
+                                        </div>
+                                        <form action="{{ url('fiches/update', $fiche) }}" method="post"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('put')
+                                            <div class="modal-body ">
+                                                <div class="form-group control-label mb-1 ">
+                                                    <label class="control-label">User <span
+                                                            class="text-danger">*</span></label>
+                                                    <select class="form-select js-select2" name="assignedto" required>
+                                                        <option value="" disabled selected>Select user</option>
+                                                        @foreach ($users as $user)
+                                                            @if ($user->username == $fiche->assignedto)
+                                                                <option value="{{ $user->username }}" selected>
+                                                                    {{ $user->name }}</option>
+                                                            @else
+                                                                <option value="{{ $user->username }}">{{ $user->name }}
+                                                                </option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-center">
+                                                <button class="btn btn-primary fw-bold" type="submit">Soumettre</button>
+                                                <button type="reset" class="btn btn-outline-danger  fw-bold"
+                                                    data-bs-dismiss="modal">Annuler</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                             @php
                                 $cnt = $cnt + 1;
                                 $delmodal = 'del' . $cnt;
                                 $tdcmodal = 'tdc' . $cnt;
                                 $tdsimodal = 'tdsi' . $cnt;
+                                $reassignermodal = 'reas' . $cnt;
                             @endphp
                         @endforeach
                     @else
