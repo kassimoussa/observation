@@ -20,7 +20,7 @@
                 </div>
             @endif
 
-            <form action="fiches/store" role="form" method="post" class="form" enctype="multipart/form-data">
+            <form action="{{ url('fiches/store') }}" role="form" method="post" class="form" enctype="multipart/form-data">
                 @csrf
 
                 <div class="card col mb-3">
