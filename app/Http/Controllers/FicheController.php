@@ -145,7 +145,11 @@ class FicheController extends Controller
             $fiches =  Fiche::where('nivo', "4")->where('assignedto', $username)->get();
         } elseif ($level == 3) {
             $fiches =  Fiche::where('nivo', "4")->get();
-        }
+        } elseif ($level == 4) {
+            $fiches =  Fiche::where('nivo', "4")->get();
+        } elseif ($level == 5) {
+            $fiches =  Fiche::where('nivo', "4")->get();
+        } 
 
         return view('1.listes.dc_fiches', compact('fiches', 'users'));
     }
