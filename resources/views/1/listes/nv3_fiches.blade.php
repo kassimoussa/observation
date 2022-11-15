@@ -20,7 +20,7 @@
 
         <div class=" mb-3">
 
-            <table class="table table-bordered table-striped hover table-sm align-middle newfiches ">
+            <table class="table table-bordered table-striped hover table-sm align-middle nv3fiches ">
                 <thead class="bg-dark text-white text-center">
                     <th>Date</th>
                     <th>N° Fiche</th>
@@ -37,7 +37,7 @@
                     <th>Action</th>
                 </thead>
                 <tbody class=" text-center">
-                    @if (!empty($fiches) && $fiches->count())
+                    @if ($fiches->isNotEmpty())
                         @php
                             $cnt = 1;
                             $delmodal = 'del' . $cnt;
@@ -112,7 +112,7 @@
                                                             data-bs-placement="bottom" title="Transmettre au DC"></i>
                                                         Transmettre à la DSI
                                                     </button>
-                                                @elseif($fiche->avis_nv3 == 'NO')
+                                                @elseif($fiche->avis_nv3 == 'NO' || $fiche->avis_nv3 == 'Annulé')
                                                     <button type="button" class="btn btn-link dropdown-item"
                                                         data-bs-toggle="modal" data-bs-target="#{{ $tdcmodal }}">
                                                         <i class="fas fa-paper-plane" data-bs-toggle="tooltip"

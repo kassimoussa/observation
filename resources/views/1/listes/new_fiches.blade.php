@@ -29,7 +29,7 @@
                     <th>N° Compte</th>
                     <th>Type</th>
                     <th>Service</th>
-                    @if (session('level') == '1' || session('level') == '3')
+                    @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
                         <th>TO</th>
                     @endif
                     {{-- <th>Avis</th>
@@ -37,7 +37,7 @@
                     <th>Action</th>
                 </thead>
                 <tbody class=" text-center">
-                    @if (!empty($fiches) && $fiches->count())
+                    @if ($fiches->isNotEmpty())
                         @php
                             $cnt = 1;
                             $delmodal = 'del' . $cnt;
@@ -71,7 +71,7 @@
                                 <td>{{ $fiche->num_compte }}</td>
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
-                                @if (session('level') == '1' || session('level') == '3')
+                                @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
                                     <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 @endif
                                 {{-- <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
@@ -108,7 +108,7 @@
                                                     data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">
                                                     <i class="fas fa-share-alt" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Réassigner"></i>
-                                                    Réassigner
+                                                    Assigner
                                                 </button>
                                             @endif
                                         </div>

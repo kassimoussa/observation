@@ -40,6 +40,11 @@ class FicheController extends Controller
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
         } elseif ($level == 4) { 
+            $nf = Fiche::where('nivo', "1")->count();
+            $nv2f = Fiche::where('nivo', "2")->whereNotNull('avis_nv2')->count();
+            $nv3f = Fiche::where('nivo', "3")->count();
+            $dcf = Fiche::where('nivo', "4")->count();
+        } elseif ($level == 5) { 
              $fiches =  Fiche::where('trans', "dsi")->get();
              return view('4.index', compact('fiches'));
         }
@@ -77,7 +82,9 @@ class FicheController extends Controller
             $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "1")->where('assignedto', $username)->get();
-        }elseif ($level == 3) { 
+        } elseif ($level == 3) { 
+            $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
+        } elseif ($level == 4) { 
             $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
         }
 
@@ -104,6 +111,8 @@ class FicheController extends Controller
             $fiches =  Fiche::where('nivo', "2")->where('assignedto', $username)->get();
         } elseif ($level == 3) {
             $fiches =  Fiche::where('nivo', "2")->get();
+        } elseif ($level == 4) {
+            $fiches =  Fiche::where('nivo', "2")->whereNotNull('avis_nv2')->get();
         }
 
         return view('1.listes.nv2_fiches', compact('fiches', 'users'));
@@ -118,6 +127,8 @@ class FicheController extends Controller
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "3")->where('assignedto', $username)->get();
         } elseif ($level == 3) {
+            $fiches =  Fiche::where('nivo', "3")->get();
+        }elseif ($level == 4) {
             $fiches =  Fiche::where('nivo', "3")->get();
         }
 
@@ -173,7 +184,8 @@ class FicheController extends Controller
         } else {
             return back()->with('fail', 'Echec de l\'ajout ');
         }
-    } */
+    } 
+    */
 
     public function store(Request $request)
     {
@@ -207,7 +219,7 @@ class FicheController extends Controller
 
         if ($query) {
             /* return redirect('/index')->with('success', 'Ajout réussi'); */
-            return back()->with('success', 'Ajout réussi');
+            return redirect('fiches/new-fiches-list')->with('success', 'Ajout réussi');
         } else {
             return back()->with('fail', 'Echec de l\'ajout ');
         }
@@ -250,6 +262,17 @@ class FicheController extends Controller
     }
 
     public function update_nv2(Request $request, Fiche $fiche)
+    {
+        $fiche->update([
+            //'avis_nv2' => $request->avis_nv2,
+            'obs_nv2' => $request->obs_nv2,
+            'date_nv2' => Carbon::now(),
+            'nivo' => "2",
+        ]);
+        /* $fiche->update(['status' => $request->new_password]); */
+        return back()->with('success', 'Modification réussie');
+    } 
+    public function update_nv2_cds(Request $request, Fiche $fiche)
     {
         $fiche->update([
             'avis_nv2' => $request->avis_nv2,

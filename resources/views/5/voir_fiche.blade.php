@@ -66,11 +66,7 @@
 
                 <div class="card mb-2">
                     <h4 class="card-header text-center bg-dark text-white">Document </h4>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-end mb-2">
-                            <button type="button" name="add_document" class="btn btn-dark fw-bold" data-bs-toggle="modal"
-                                data-bs-target="#new_document">Ajouter</button>
-                        </div>
+                    <div class="card-body"> 
                         <table class="table table-bordered border-dark table-sm table-hover" id="">
                             <thead class="  table-dark text-center">
                                 <th>N° Document</th>
@@ -95,36 +91,9 @@
                                                     class="btn btn-transparent btn-xs" data-bs-toggle="tooltip"
                                                     data-bs-placement="bottom" title="Télécharger le document">
                                                     <i class="fas fa-download "></i>
-                                                </a>
-                                                <form action="{{ url('delete_document', $document) }}" method="post"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="button" class="btn btn-transparent btn-xs"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Supprimer le document"
-                                                        onclick="confirm('Etes vous sûr de supprimer le document ?') ? this.parentElement.submit() : ''">
-                                                        <i class="fas fa-trash "></i>
-                                                    </button>
-                                                </form>
+                                                </a> 
                                             </td>
-                                        </tr>
-                                        <div class="modal fade" id="{{ $modaln }}" tabindex="-1"
-                                            aria-labelledby="voirtoutrTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-fullscreen modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="btn btn-primary fw-bold"
-                                                            data-bs-dismiss="modal">Fermer</button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <iframe height="900px" width="1000px"
-                                                            src="{{ asset($document->path) }}" frameborder="0"></iframe>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </tr> 
                                         @php
                                             $cnt = $cnt + 1;
                                             $modaln = 'vdir' . $cnt;
@@ -226,101 +195,77 @@
             </div>
         </div>
 
-        <form action="{{ url('fiches/update_nv3', $fiche) }}" method="post" class="d-inline">
-            @csrf
-            @method('PUT')
-            <div class="card  mb-4">
-                <div class="card-header bg-dark">
-                    <div class="row justify-content-center">
-                        <div class=" col-8 d-flex justify-content-end">
-                            <h4 class="  text-center  text-white">Observation Chef de Division SI</h4>
-                        </div>
-
-                        <div class=" col-4  d-flex justify-content-end">
-                            <button class="btn btn-transparent btn-xs btn-nv3" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#nv3Collapse" aria-expanded="false" aria-controls="nv3Collapse">
-                                <i class="fas fa-plus" style="color: white"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row mb-2 ">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <h4 class="card-header  text-center bg-dark text-white">Avis</h4>
-                                <div class="card-body">
-                                    <div class="mb-2 d-flex justify-content-between">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="avis_nv3"
-                                                id="nv3_ok" value="OK"
-                                                @if ($fiche->avis_nv3 == 'OK') checked  @else   @endif>
-                                            <label class="form-check-label" for="nv3_ok">Favorable</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="avis_nv3"
-                                                id="nv3_no" value="NO"
-                                                @if ($fiche->avis_nv3 == 'NO') checked  @else   @endif>
-                                            <label class="form-check-label" for="nv3_no">Défavorable</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="avis_nv3"
-                                                id="nv3_can" value="Annulé"
-                                                @if ($fiche->avis_nv3 == 'Annulé') checked @else   @endif>
-                                            <label class="form-check-label" for="nv3_can">Annulé</label>
-                                        </div>
+        <div class="card col mb-3">
+            <h4 class="card-header text-center bg-dark text-white"> Observation Chef de Division SI</h4>
+            <div class="card-body">
+                <div class="row mb-2 ">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h4 class="card-header  text-center bg-dark text-white">Avis</h4>
+                            <div class="card-body">
+                                <div class="mb-2 d-flex justify-content-between">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="avis_nv3"
+                                            id="nv3_ok" value="OK"
+                                            @if ($fiche->avis_nv3 == 'OK') checked  @else disabled @endif>
+                                        <label class="form-check-label" for="nv3_ok">Favorable</label>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="card">
-                                <h4 class="card-header  text-center bg-dark text-white">Status</h4>
-                                <div class="card-body">
-                                    <div class="mb-2 d-flex justify-content-between">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="clo"
-                                                value="Cloturé"
-                                                @if ($fiche->status == 'Cloturé') checked @else   @endif>
-                                            <label class="form-check-label" for="clo">Cloturé</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="encours"
-                                                value="En cours"
-                                                @if ($fiche->status == 'En cours') checked @else   @endif>
-                                            <label class="form-check-label" for="encours">En cours</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="status" id="rej"
-                                                value="Rejeté"
-                                                @if ($fiche->status == 'Rejeté') checked @else   @endif>
-                                            <label class="form-check-label" for="rej">Rejeté</label>
-                                        </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="avis_nv3"
+                                            id="nv3_no" value="NO"
+                                            @if ($fiche->avis_nv3 == 'NO') checked  @else disabled @endif>
+                                        <label class="form-check-label" for="nv3_no">Défavorable</label>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="card">
-                                <h4 class="card-header  text-center bg-dark text-white">Commentaire</h4>
-                                <div class="card-body">
-                                    <textarea class="form-control textarea mb-2" aria-label="With textarea" name="obs_nv3">{{ $fiche->obs_nv3 }} </textarea>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="avis_nv3"
+                                            id="nv3_can" value="Annulé"
+                                            @if ($fiche->avis_nv3 == 'Annulé') checked @else disabled @endif>
+                                        <label class="form-check-label" for="nv3_can">Annulé</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
-                <div class="card-footer collapse" id="nv3Collapse">
-                    <div class="d-flex justify-content-center ">
-                        <button class="btn btn-primary fw-bold me-4" type="submit">Enregistrer</button>
-                        <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <h4 class="card-header  text-center bg-dark text-white">Status</h4>
+                            <div class="card-body">
+                                <div class="mb-2 d-flex justify-content-between">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status" id="clo"
+                                            value="Cloturé"
+                                            @if ($fiche->status == 'Cloturé') checked @else disabled @endif>
+                                        <label class="form-check-label" for="clo">Cloturé</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status" id="encours"
+                                            value="En cours"
+                                            @if ($fiche->status == 'En cours') checked @else disabled @endif>
+                                        <label class="form-check-label" for="encours">En cours</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="status" id="rej"
+                                            value="Rejeté"
+                                            @if ($fiche->status == 'Rejeté') checked @else disabled @endif>
+                                        <label class="form-check-label" for="rej">Rejeté</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <h4 class="card-header  text-center bg-dark text-white">Commentaire</h4>
+                            <div class="card-body">
+                                <textarea class="form-control textarea mb-2" aria-label="With textarea" name="obs_nv3">{{ $fiche->obs_nv3 }} </textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
 
     </div>
 

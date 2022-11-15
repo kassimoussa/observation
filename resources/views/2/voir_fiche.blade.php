@@ -155,8 +155,8 @@
                                             <div class="form-group control-label mb-3 ">
                                                 <label class="control-label">Documents <span
                                                         class="text-danger">*</span></label>
-                                                <input class="form-control" type="file" name="files[]" accept=".pdf" id="formFile"
-                                                    multiple>
+                                                <input class="form-control" type="file" name="files[]" accept=".pdf"
+                                                    id="formFile" multiple>
                                             </div>
 
                                             <div class="row mb-3">
@@ -208,7 +208,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row mb-2 ">
-                        <div class="col-md-6">
+                        <div class="col">
                             <div class="card">
                                 <h4 class="card-header  text-center bg-dark text-white">Commentaire</h4>
                                 <div class="card-body">
@@ -217,7 +217,8 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        {{-- 
+                         <div class="col">
                             <div class="card">
                                 <h4 class="card-header  text-center bg-dark text-white">Avis</h4>
                                 <div class="card-body">
@@ -237,7 +238,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
+                        --}}
                     </div>
 
                 </div>

@@ -83,7 +83,7 @@
                     </div>
                 </div>
 
-                <div class="card col mb-3">
+               {{--  <div class="card col mb-3">
                     <h4 class="card-header text-center bg-dark text-white">Assignation </h4>
                     <div class="card-body">
                         <div class="form-group control-label mb-1 ">
@@ -96,7 +96,7 @@
                             </select>
                         </div>
                     </div>
-                </div> 
+                </div>  --}}
 
                 <div class="card col mb-3">
                     <h4 class="card-header text-center bg-dark text-white">Observation </h4>

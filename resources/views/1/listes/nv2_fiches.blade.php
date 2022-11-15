@@ -29,20 +29,23 @@
                     <th>N° Compte</th>
                     <th>Type</th>
                     <th>Service</th>
+                    {{-- @if (session('level') == '3')
+                        <th>Commenté</th>
+                    @endif --}}
                     <th>Avis</th>
-                    @if (session('level') == '1' || session('level') == '3')
+                    @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
                         <th>TO</th>
                     @endif
                     {{-- <th>Status</th> --}}
                     <th>Action</th>
                 </thead>
                 <tbody class=" text-center">
-                    @if (!empty($fiches) && $fiches->count())
+                    @if ($fiches->isNotEmpty())
                         @php
                             $cnt = 1;
                             $delmodal = 'del' . $cnt;
                             $tdcmodal = 'tdc' . $cnt;
-                            $tdsimodal = 'tdsi' . $cnt; 
+                            $tdsimodal = 'tdsi' . $cnt;
                             $transmodal = 'trans' . $cnt;
                             $reassignermodal = 'reas' . $cnt;
                         @endphp
@@ -50,6 +53,7 @@
                         @foreach ($fiches as $key => $fiche)
                             @php
                                 $avis = $fiche->avis_nv2;
+                                $commente = $fiche->obs_nv2;
                                 $bg = 'white';
                                 $txt = 'white';
                                 $editbtn = '';
@@ -66,6 +70,11 @@
                                     $bg = 'warning';
                                     $txt = 'dark';
                                 }
+                                if ($commente == null) {
+                                    $commente = 'Non';
+                                } else {
+                                    $commente = 'Oui';
+                                }
                             @endphp
                             <tr>
                                 <td>{{ $fiche->updated_at }} </td>
@@ -75,8 +84,11 @@
                                 <td>{{ $fiche->num_compte }}</td>
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
+                                {{-- @if (session('level') == '3')
+                                    <td>{{ strtoupper($commente) }}</td>
+                                @endif --}}
                                 <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
-                                @if (session('level') == '1' || session('level') == '3')
+                                @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
                                     <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 @endif
                                 {{--  <td>{{ $fiche->status }} </td> --}}
@@ -271,7 +283,7 @@
                                                     <label class="control-label">Direction <span
                                                             class="text-danger">*</span></label>
                                                     <select class="form-select js-select2" name="trans" required>
-                                                        <option value="" disabled selected>Select Direction</option> 
+                                                        <option value="" disabled selected>Select Direction</option>
                                                         <option value="dsi">DSI</option>
                                                         <option value="dc">DC</option>
                                                         <option value="dg">DG</option>

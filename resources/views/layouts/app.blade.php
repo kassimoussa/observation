@@ -1,6 +1,10 @@
 @php
     use App\Models\User;
-    $user = User::where('id', session('id'))->first();
+    $user = User::where('id', session('id'))->first(); 
+    if (session('level') != $user->level) {
+        session()->forget('level');
+        session()->put('level', $user->level);
+    }
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -187,6 +191,23 @@
                 ],
                 "filter": true,
                 "searching": true,
+            });
+        });
+
+        $(document).ready(function() {
+            $('table.nv3fiches').DataTable({
+                "columnDefs": [{
+                        "targets": [0],
+                        "visible": false,
+                        "searchable": false
+                    }, 
+                ],
+                "paging": false,
+                "info": false,
+                "searching": false,
+                /* "scrollY":        "600px",
+                "scrollCollapse": true, */
+                "filter": true
             });
         });
     </script>

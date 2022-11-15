@@ -17,7 +17,7 @@ use App\Http\Controllers\FicheController;
 */
 
 /* Route::get('/', function () {
-    return view('connexion');
+    return view('connexion'); 
 }); */
 
 Route::get('/',  [UserController::class, 'accueil']);
@@ -41,6 +41,7 @@ Route::group(['middleware' => ['logged']], function () {
         Route::get('/edit/{fiche}', [FicheController::class, 'edit']);
         Route::put('/update/{fiche}', [FicheController::class, 'update']);
         Route::put('/update_nv2/{fiche}', [FicheController::class, 'update_nv2']);
+        Route::put('/update_nv2_cds/{fiche}', [FicheController::class, 'update_nv2_cds']);
         Route::put('/update_nv3/{fiche}', [FicheController::class, 'update_nv3']);
         Route::put('/transmettre/{fiche}', [FicheController::class, 'transmettre']);
         Route::delete('/delete/{fiche}', [FicheController::class, 'destroy']);

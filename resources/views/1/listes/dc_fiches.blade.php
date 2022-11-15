@@ -39,7 +39,7 @@
                     <th>Action</th>
                 </thead>
                 <tbody class=" text-center">
-                    @if (!empty($fiches) && $fiches->count())
+                    @if ($fiches->isNotEmpty())
                         @php
                             $cnt = 1;
                             $delmodal = 'del' . $cnt;
