@@ -103,7 +103,7 @@
                                                     Supprimer la fiche
                                                 </button>
                                             @endif
-                                            @if (session('level') == 3)
+                                            @if (session('level') == 3 || session('level') == 4)
                                                 <button type="button" class="btn btn-link dropdown-item"
                                                     data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">
                                                     <i class="fas fa-share-alt" data-bs-toggle="tooltip"

@@ -129,18 +129,12 @@
                                                     </button>
                                                 @endif
                                             @endif
-                                            @if (session('level') == 3)
+                                            @if (session('level') == 3  || session('level') == 4)
                                                 <button type="button" class="btn btn-link dropdown-item"
                                                     data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">
                                                     <i class="fas fa-share-alt" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Réassigner"></i>
                                                     Réassigner
-                                                </button>
-                                                <button type="button" class="btn btn-link dropdown-item"
-                                                    data-bs-toggle="modal" data-bs-target="#{{ $transmodal }}">
-                                                    <i class="fas fa-paper-plane" data-bs-toggle="tooltip"
-                                                        data-bs-placement="bottom" title="Transmettre"></i>
-                                                    Transmettre
                                                 </button>
                                             @endif
                                         </div>

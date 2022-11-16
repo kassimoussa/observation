@@ -30,7 +30,7 @@
                     <th>Type</th>
                     <th>Service</th>
                     <th>Avis</th>
-                    @if (session('level') == '1' || session('level') == '3')
+                    @if (session('level') == '1' || session('level') == '3' || session('level') == 4)
                         <th>TO</th>
                     @endif
                     {{-- <th>Status</th> --}}
@@ -74,7 +74,7 @@
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
                                 <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
-                                @if (session('level') == '1' || session('level') == '3')
+                                @if (session('level') == '1' || session('level') == '3' || session('level') == 4)
                                     <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 @endif
                                 {{--  <td>{{ $fiche->status }} </td> --}}
