@@ -74,9 +74,9 @@
 
                                 
                                 if ($status == 'Cloturé') { 
-                                    $color_status = 'bg-white text-dark';
+                                    $color_status = 'bg-success text-dark';
                                 } elseif ($status == 'Rejeté') { 
-                                    $color_status = 'bg-success text-white'; 
+                                    $color_status = 'bg-danger text-white'; 
                                 } else { 
                                     $color_status = 'bg-white text-dark'; 
                                 }  
