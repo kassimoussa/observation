@@ -33,6 +33,7 @@
                         <th>Commenté</th>
                     @endif --}}
                     <th>Avis</th>
+                    <th>Status</th>
                     @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
                         <th>TO</th>
                     @endif
@@ -54,22 +55,32 @@
                             @php
                                 $avis = $fiche->avis_nv2;
                                 $commente = $fiche->obs_nv2;
-                                $bg = 'white';
-                                $txt = 'white';
+                                $status = $fiche->status;
+                                $color_avis = 'white';
+                                $color_status = 'white';
                                 $editbtn = '';
                                 if ($avis == null) {
                                     $avis = "Pas d'avis";
-                                    $txt = 'dark';
-                                } elseif ($avis == 'OK') {
-                                    $bg = 'success';
+                                    $color_avis = 'bg-white text-dark';
+                                } elseif ($avis == 'OK') { 
+                                    $color_avis = 'bg-success text-white';
                                     $avis = 'Favorable';
-                                } elseif ($avis == 'NO') {
-                                    $bg = 'danger';
+                                } elseif ($avis == 'NO') { 
+                                    $color_avis = 'bg-danger text-white';
                                     $avis = 'Défavorable';
-                                } elseif ($avis == 'Annulé') {
-                                    $bg = 'warning';
-                                    $txt = 'dark';
+                                } elseif ($avis == 'Annulé') { 
+                                    $color_avis = 'bg-warning text-dark'; 
                                 }
+
+                                
+                                if ($status == 'Cloturé') { 
+                                    $color_status = 'bg-white text-dark';
+                                } elseif ($status == 'Rejeté') { 
+                                    $color_status = 'bg-success text-white'; 
+                                } else { 
+                                    $color_status = 'bg-white text-dark'; 
+                                }  
+
                                 if ($commente == null) {
                                     $commente = 'Non';
                                 } else {
@@ -87,7 +98,8 @@
                                 {{-- @if (session('level') == '3')
                                     <td>{{ strtoupper($commente) }}</td>
                                 @endif --}}
-                                <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
+                                <td class="{{ $color_avis  }}">{{ $avis }}</td>
+                                <td class="{{ $color_status  }}">{{ $status }}</td>
                                 @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
                                     <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 @endif
