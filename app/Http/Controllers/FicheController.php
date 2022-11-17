@@ -29,28 +29,32 @@ class FicheController extends Controller
             $nv2f = Fiche::where('nivo', "2")->count();
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
+            $rsf = Fiche::where('nivo', "5")->count();
         } elseif ($level == 2) {
             $nf = Fiche::where('nivo', "1")->where('assignedto', $username)->count();
             $nv2f = Fiche::where('nivo', "2")->where('assignedto', $username)->count();
             $nv3f = Fiche::where('nivo', "3")->where('assignedto', $username)->count();
             $dcf = Fiche::where('nivo', "4")->where('assignedto', $username)->count();
+            $rsf = Fiche::where('nivo', "5")->count();
         } elseif ($level == 3) { 
             $nf = Fiche::where('nivo', "1")->count();
             $nv2f = Fiche::where('nivo', "2")->count();
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
+            $rsf = Fiche::where('nivo', "5")->count();
         } elseif ($level == 4) { 
             $nf = Fiche::where('nivo', "1")->count();
             $nv2f = Fiche::where('nivo', "2")->whereNotNull('avis_nv2')->count();
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
+            $rsf = Fiche::where('nivo', "5")->count();
         } elseif ($level == 5) { 
              $fiches =  Fiche::where('trans', "dsi")->get();
              return view('4.index', compact('fiches'));
         }
 
 
-        return view($level . '.index', compact('nf', 'nv2f', 'nv3f', 'dcf'));
+        return view($level . '.index', compact('nf', 'nv2f', 'nv3f', 'dcf', 'rsf'));
     }
 
     public function index_nv2()
@@ -102,7 +106,7 @@ class FicheController extends Controller
 
     public function nv2_fiches()
     {
-        $users = User::where('level', '2')->get();
+        $users = User::all();
         $level = session('level');
         $username = session('username');
         if ($level == 1) {
@@ -134,6 +138,7 @@ class FicheController extends Controller
 
         return view('1.listes.nv3_fiches', compact('fiches'));
     }
+
     public function dc_fiches()
     {
         $users = User::where('level', '2')->get();
@@ -153,6 +158,16 @@ class FicheController extends Controller
 
         return view('1.listes.dc_fiches', compact('fiches', 'users'));
     }
+    public function rs_fiches()
+    {
+        $users = User::all();
+        $level = session('level');
+        $username = session('username');
+        $fiches =  Fiche::where('nivo', "5")->get();
+
+        return view('1.listes.rs_fiches', compact('fiches', 'users'));
+    }
+
 
     /*  public function store(Request $request)
     {

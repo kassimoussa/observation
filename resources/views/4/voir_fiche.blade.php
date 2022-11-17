@@ -10,6 +10,13 @@
             <h5>N° {{ $fiche->id }}</h5>
             <h5>{{ date('d/m/Y', strtotime($fiche->date_ajout)) }}</h5>
         </div>
+
+        @if ($fiche->nivo == 5)
+            <div class="alert alert-info" role="alert">
+               Commentaire : {{ $fiche->message }}
+            </div>
+        @endif
+
         <div class="card col mb-3">
             <h4 class="card-header text-center bg-dark text-white">Informations du client</h4>
             <div class="card-body">
@@ -321,6 +328,8 @@
                 </div>
             </div>
         </form>
+
+        
 
     </div>
 

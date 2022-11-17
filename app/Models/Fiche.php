@@ -15,15 +15,15 @@ class Fiche extends Model
         'num_compte',
         'num_facture',
         'mont_facture', 
+        'type',
+        'service',
+        'submitedby', 
         'obs_nv1', 
         'obs_nv2',
         'obs_nv3',
-        'submitedby', 
-        'type',
         'avis_nv2',
         'avis_nv3',
         'status',
-        'service',
         'date_ajout',
         'date_nv2',
         'date_nv3',
@@ -33,6 +33,8 @@ class Fiche extends Model
         'date_clos',
         'assignedto',
         'nivo',
-        'trans'
-    ];
+        'trans',
+        'resendto',
+        'message',
+    ];  
 }

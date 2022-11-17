@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'Liste fiches en cours', 'pageSlug' => 'ec_fiches', 'sup' => ''])
+@extends('layouts.app', ['page' => 'Liste fiches niveau 2', 'pageSlug' => 'ec_fiches', 'sup' => ''])
 
 @section('content')
 
@@ -49,6 +49,7 @@
                             $tdsimodal = 'tdsi' . $cnt;
                             $transmodal = 'trans' . $cnt;
                             $reassignermodal = 'reas' . $cnt;
+                            $sendmodal = 'send' . $cnt;
                         @endphp
 
                         @foreach ($fiches as $key => $fiche)
@@ -62,25 +63,24 @@
                                 if ($avis == null) {
                                     $avis = "Pas d'avis";
                                     $color_avis = 'bg-white text-dark';
-                                } elseif ($avis == 'OK') { 
+                                } elseif ($avis == 'OK') {
                                     $color_avis = 'bg-success text-white';
                                     $avis = 'Favorable';
-                                } elseif ($avis == 'NO') { 
+                                } elseif ($avis == 'NO') {
                                     $color_avis = 'bg-danger text-white';
                                     $avis = 'Défavorable';
-                                } elseif ($avis == 'Annulé') { 
-                                    $color_avis = 'bg-warning text-dark'; 
+                                } elseif ($avis == 'Annulé') {
+                                    $color_avis = 'bg-warning text-dark';
                                 }
-
                                 
-                                if ($status == 'Cloturé') { 
+                                if ($status == 'Cloturé') {
                                     $color_status = 'bg-success text-dark';
-                                } elseif ($status == 'Rejeté') { 
-                                    $color_status = 'bg-danger text-white'; 
-                                } else { 
-                                    $color_status = 'bg-white text-dark'; 
-                                }  
-
+                                } elseif ($status == 'Rejeté') {
+                                    $color_status = 'bg-danger text-white';
+                                } else {
+                                    $color_status = 'bg-white text-dark';
+                                }
+                                
                                 if ($commente == null) {
                                     $commente = 'Non';
                                 } else {
@@ -98,8 +98,8 @@
                                 {{-- @if (session('level') == '3')
                                     <td>{{ strtoupper($commente) }}</td>
                                 @endif --}}
-                                <td class="{{ $color_avis  }}">{{ $avis }}</td>
-                                <td class="{{ $color_status  }}">{{ $status }}</td>
+                                <td class="{{ $color_avis }}">{{ $avis }}</td>
+                                <td class="{{ $color_status }}">{{ $status }}</td>
                                 @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
                                     <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 @endif
@@ -141,12 +141,20 @@
                                                     </button>
                                                 @endif
                                             @endif
-                                            @if (session('level') == 3  || session('level') == 4)
+                                            @if (session('level') == 3 || session('level') == 4)
                                                 <button type="button" class="btn btn-link dropdown-item"
                                                     data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">
                                                     <i class="fas fa-share-alt" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Réassigner"></i>
                                                     Réassigner
+                                                </button>
+                                            @endif
+                                            @if (session('level') == 4)
+                                                <button type="button" class="btn btn-link dropdown-item"
+                                                    data-bs-toggle="modal" data-bs-target="#{{ $sendmodal }}">
+                                                    <i class="fas fa-share fa-flip-horizontal" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title="Renvoyer"></i>
+                                                    Renvoyer
                                                 </button>
                                             @endif
                                         </div>
@@ -252,12 +260,15 @@
                                                     <select class="form-select js-select2" name="assignedto" required>
                                                         <option value="" disabled selected>Select user</option>
                                                         @foreach ($users as $user)
-                                                            @if ($user->username == $fiche->assignedto)
-                                                                <option value="{{ $user->username }}" selected>
-                                                                    {{ $user->name }}</option>
-                                                            @else
-                                                                <option value="{{ $user->username }}">{{ $user->name }}
-                                                                </option>
+                                                            @if ($user->level == '2')
+                                                                @if ($user->username == $fiche->assignedto)
+                                                                    <option value="{{ $user->username }}" selected>
+                                                                        {{ $user->name }}</option>
+                                                                @else
+                                                                    <option value="{{ $user->username }}">
+                                                                        {{ $user->name }}
+                                                                    </option>
+                                                                @endif
                                                             @endif
                                                         @endforeach
                                                     </select>
@@ -306,6 +317,8 @@
                                 </div>
                             </div>
 
+                            <x-resend-to :sendmodal="$sendmodal" :users="$users" :fiche="$fiche" />
+
                             @php
                                 $cnt = $cnt + 1;
                                 $delmodal = 'del' . $cnt;
@@ -313,6 +326,7 @@
                                 $tdsimodal = 'tdsi' . $cnt;
                                 $reassignermodal = 'reas' . $cnt;
                                 $transmodal = 'trans' . $cnt;
+                                $sendmodal = 'send' . $cnt;
                             @endphp
                         @endforeach
                     @else
