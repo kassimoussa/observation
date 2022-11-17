@@ -43,6 +43,7 @@
                             $delmodal = 'del' . $cnt;
                             $tdcmodal = 'tdc' . $cnt;
                             $tdsimodal = 'tdsi' . $cnt;
+                            $sendmodal = 'send' . $cnt;
                         @endphp
 
                         @foreach ($fiches as $key => $fiche)
@@ -121,6 +122,14 @@
                                                     </button>
                                                 @endif
                                             @endif
+                                            @if (session('level') == 4)
+                                                <button type="button" class="btn btn-link dropdown-item"
+                                                    data-bs-toggle="modal" data-bs-target="#{{ $sendmodal }}">
+                                                    <i class="fas fa-share fa-flip-horizontal" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title="Renvoyer"></i>
+                                                    Renvoyer
+                                                </button>
+                                            @endif
                                         </div>
                                     </div>
                                 </td>
@@ -172,15 +181,15 @@
                                                 <button class="btn btn-primary fw-bold" type="submit">Soumettre</button>
                                                 <button type="reset" class="btn btn-outline-danger  fw-bold"
                                                     data-bs-dismiss="modal">Annuler</button>
-                                                    <input type="text" name="trans" value="dc" hidden>
+                                                <input type="text" name="trans" value="dc" hidden>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="modal fade" id="{{ $tdsimodal }}" tabindex="-1"
-                                aria-labelledby="dsiModal" aria-hidden="true">
+                            <div class="modal fade" id="{{ $tdsimodal }}" tabindex="-1" aria-labelledby="dsiModal"
+                                aria-hidden="true">
                                 <div class="modal-dialog   modal-dialog-centered  " role="document">
                                     <div class="modal-content">
                                         <div class="modal-header d-flex justify-content-center">
@@ -199,17 +208,19 @@
                                                 <button class="btn btn-primary fw-bold" type="submit">Soumettre</button>
                                                 <button type="reset" class="btn btn-outline-danger  fw-bold"
                                                     data-bs-dismiss="modal">Annuler</button>
-                                                    <input type="text" name="trans" value="dsi" hidden>
+                                                <input type="text" name="trans" value="dsi" hidden>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <x-resend-to :sendmodal="$sendmodal" :users="$users" :fiche="$fiche" />
                             @php
                                 $cnt = $cnt + 1;
                                 $delmodal = 'del' . $cnt;
                                 $tdcmodal = 'tdc' . $cnt;
-                            $tdsimodal = 'tdsi' . $cnt;
+                                $tdsimodal = 'tdsi' . $cnt;
+                                $sendmodal = 'send' . $cnt;
                             @endphp
                         @endforeach
                     @else
