@@ -125,6 +125,7 @@ class FicheController extends Controller
     public function nv3_fiches()
     {
         $level = session('level');
+        $users = User::all();
         $username = session('username');
         if ($level == 1) {
             $fiches =  Fiche::where('nivo', "3")->orderBy('id', 'desc')->get();
@@ -136,7 +137,7 @@ class FicheController extends Controller
             $fiches =  Fiche::where('nivo', "3")->get();
         }
 
-        return view('1.listes.nv3_fiches', compact('fiches'));
+        return view('1.listes.nv3_fiches', compact('fiches', 'users'));
     }
 
     public function dc_fiches()
