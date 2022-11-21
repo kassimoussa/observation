@@ -118,13 +118,6 @@
                                                 <i class="fas fa-eye"></i> Voir la fiche
                                             </a>
                                             @if (session('level') == '1')
-                                                <a href="{{ url('fiches/edit', $fiche) }}"
-                                                    class="btn btn-link {{ $editbtn }} dropdown-item"
-                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                    title="Modifier la fiche ">
-                                                    <i class="fas fa-edit"></i> Modifier la fiche
-                                                </a>
-
                                                 <button type="button" class="btn btn-link dropdown-item"
                                                     data-bs-toggle="modal" data-bs-target="#{{ $delmodal }}">
                                                     <i class="fas fa-trash-alt" data-bs-toggle="tooltip"
@@ -141,6 +134,16 @@
                                                     </button>
                                                 @endif
                                             @endif
+
+                                            @if (session('level') == 1 || session('level') == 3)
+                                                <a href="{{ url('fiches/edit', $fiche) }}"
+                                                    class="btn btn-link {{ $editbtn }} dropdown-item"
+                                                    data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                    title="Modifier la fiche ">
+                                                    <i class="fas fa-edit"></i> Modifier la fiche
+                                                </a>
+                                            @endif
+
                                             @if (session('level') == 3 || session('level') == 4)
                                                 <button type="button" class="btn btn-link dropdown-item"
                                                     data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">

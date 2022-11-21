@@ -261,7 +261,7 @@ class FicheController extends Controller
     public function edit(Fiche $fiche)
     {
         $level = session('level');
-        $url = $level . '.edit_fiche';
+        $url = '1.edit_fiche';
         $users = User::where('level', '2')->get();
 
         return view($url, compact('fiche', 'users'));
