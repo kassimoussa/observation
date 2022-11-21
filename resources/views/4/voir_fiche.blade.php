@@ -259,7 +259,7 @@
                                 <div class="card-body">
                                     <div class="mb-2 d-flex justify-content-between">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="avis_nv3"
+                                            <input class="form-check-input" type="radio" name="avis_nv3" required
                                                 id="nv3_ok" value="OK"
                                                 @if ($fiche->avis_nv3 == 'OK') checked  @else   @endif>
                                             <label class="form-check-label" for="nv3_ok">Favorable</label>
