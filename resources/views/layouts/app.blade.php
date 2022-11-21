@@ -204,10 +204,14 @@
                 ],
                 "paging": false,
                 "info": false,
-                "searching": false,
                 /* "scrollY":        "600px",
                 "scrollCollapse": true, */
-                "filter": true
+                "ordering": true,
+                "order": [
+                    [0, 'desc']
+                ],
+                "filter": true,
+                "searching": true,
             });
         });
     </script>
