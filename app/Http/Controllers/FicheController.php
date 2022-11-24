@@ -50,7 +50,7 @@ class FicheController extends Controller
             $rsf = Fiche::where('nivo', "5")->count();
         } elseif ($level == 5) { 
              $fiches =  Fiche::where('trans', "dsi")->get();
-             return view('4.index', compact('fiches'));
+             return view('5.index', compact('fiches'));
         }
 
 
