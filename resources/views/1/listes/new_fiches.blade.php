@@ -29,9 +29,7 @@
                     <th>N° Compte</th>
                     <th>Type</th>
                     <th>Service</th>
-                    @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
-                        <th>TO</th>
-                    @endif
+                    <th>TO</th>
                     {{-- <th>Avis</th>
                     <th>Status</th> --}}
                     <th>Action</th>
@@ -71,9 +69,7 @@
                                 <td>{{ $fiche->num_compte }}</td>
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
-                                @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
-                                    <td>{{ strtoupper($fiche->assignedto) }}</td>
-                                @endif
+                                <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 {{-- <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
                                 <td>{{ $fiche->status }} </td> --}}
                                 <td class="td-actions ">

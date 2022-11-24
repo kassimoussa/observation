@@ -32,9 +32,7 @@
                     <th>Avis</th>
                     <th>Status</th>
                     <th>A</th>
-                    @if (session('level') == '1' || session('level') == '3' || session('level') == 4)
-                        <th>TO</th>
-                    @endif
+                    <th>TO</th>
                     {{-- <th>Status</th> --}}
                     <th>Action</th>
                 </thead>
@@ -77,9 +75,7 @@
                                 <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
                                 <td>{{ $fiche->status }} </td>
                                 <td>{{ strtoupper($fiche->trans) }}</td>
-                                @if (session('level') == '1' || session('level') == '3' || session('level') == 4)
-                                    <td>{{ strtoupper($fiche->assignedto) }}</td>
-                                @endif
+                                <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 <td class="td-actions ">
                                     <div class="dropdown dropstart">
                                         <button type="button" class="btn btn-icon dropdown-toggle"

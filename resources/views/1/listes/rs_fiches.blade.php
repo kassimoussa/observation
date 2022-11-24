@@ -31,9 +31,7 @@
                     <th>Service</th> 
                     <th>Avis</th>
                     <th>Status</th>
-                    @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
-                        <th>TO</th>
-                    @endif 
+                    <th>TO</th>
                     <th>Action</th>
                 </thead>
                 <tbody class=" text-center">
@@ -93,9 +91,7 @@
                                 <td>{{ $fiche->service }}</td>
                                 <td class="{{ $color_avis }}">{{ $avis }}</td>
                                 <td class="{{ $color_status }}">{{ $status }}</td>
-                                @if (session('level') == '1' || session('level') == '3' || session('level') == '4')
-                                    <td>{{ strtoupper($fiche->assignedto) }}</td>
-                                @endif
+                                <td>{{ strtoupper($fiche->assignedto) }}</td>
                                 {{--  <td>{{ $fiche->status }} </td> --}}
                                 <td class="td-actions ">
                                     <div class="dropdown dropstart">
