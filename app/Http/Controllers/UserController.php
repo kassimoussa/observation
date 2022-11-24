@@ -34,9 +34,9 @@ class UserController extends Controller
 
         $field = filter_var($request->input('email'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-        $user = User::where($field, '=', $request->email)->first();
+        $user = User::where($field, $request->email)->first();
         if ($user) {
-            if ($request->password = $user->password) {
+            if ($request->password == $user->password) {
                 $request->session()->put('id', $user->id);
                 $request->session()->put('name', $user->name);
                 $request->session()->put('username', $user->username);
