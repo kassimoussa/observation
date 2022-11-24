@@ -124,7 +124,7 @@
                                     <div class="modal-body ">
                                         <div class="form-group control-label mb-2 ">
                                             <label class="control-label">Motif <span class="text-danger">*</span></label>
-                                            <input type="text" name="motif_dsi" class="form-control">
+                                            <input type="text" name="motif_dsi" class="form-control" required>
                                         </div>
                     
                                         <div class="form-group control-label mb-2 ">
