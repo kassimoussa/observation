@@ -165,7 +165,7 @@
 
     <div class="main-c   ">
         @yield('content')
-
+        <x-go-top />
     </div>
 
 
