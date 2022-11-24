@@ -67,10 +67,6 @@
                 <div class="card mb-2">
                     <h4 class="card-header text-center bg-dark text-white">Document </h4>
                     <div class="card-body">
-                        <div class="d-flex justify-content-end mb-2">
-                            <button type="button" name="add_document" class="btn btn-dark fw-bold" data-bs-toggle="modal"
-                                data-bs-target="#new_document">Ajouter</button>
-                        </div>
                         <table class="table table-bordered border-dark table-sm table-hover" id="">
                             <thead class="  table-dark text-center">
                                 <th>N° Document</th>
@@ -96,17 +92,6 @@
                                                     data-bs-placement="bottom" title="Télécharger le document">
                                                     <i class="fas fa-download "></i>
                                                 </a>
-                                                <form action="{{ url('delete_document', $document) }}" method="post"
-                                                    class="d-inline">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="button" class="btn btn-transparent btn-xs"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Supprimer le document"
-                                                        onclick="confirm('Etes vous sûr de supprimer le document ?') ? this.parentElement.submit() : ''">
-                                                        <i class="fas fa-trash "></i>
-                                                    </button>
-                                                </form>
                                             </td>
                                         </tr>
                                         <div class="modal fade" id="{{ $modaln }}" tabindex="-1"
@@ -137,44 +122,6 @@
                                 @endif
                             </tbody>
                         </table>
-
-                        <div class="modal fade" id="new_document" tabindex="-1" aria-labelledby="newDocument"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header d-flex justify-content-between">
-                                        <h3>Nouveau Document </h3>
-                                        <button type="button" class="btn btn-primary fw-bold"
-                                            data-bs-dismiss="modal">Fermer</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="{{ route('add_document') }}" role="form" method="post"
-                                            class="form" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="form-group control-label mb-3 ">
-                                                <label class="control-label">Documents <span
-                                                        class="text-danger">*</span></label>
-                                                <input class="form-control" type="file" name="files[]" accept=".pdf" id="formFile" 
-                                                    multiple>
-                                            </div>
-
-                                            <div class="row mb-3">
-                                                <div class="form-group text-center">
-                                                    <button type="submit" name="submit"
-                                                        class="btn btn-primary fw-bold">Ajouter</button>
-                                                    <button type="reset"
-                                                        class="btn btn-outline-danger fw-bold">Annulé</button>
-                                                    <input type="text" name="numero_fiche"
-                                                        value="{{ $fiche->id_time }}" hidden>
-                                                </div>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>

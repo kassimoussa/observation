@@ -24,7 +24,7 @@ class FicheController extends Controller
         $level = session('level');
         $username = session('username');
 
-        if ($level == 1) {
+        if ($level == 1 || $level == 6) {
             $nf = Fiche::where('nivo', "1")->count();
             $nv2f = Fiche::where('nivo', "2")->count();
             $nv3f = Fiche::where('nivo', "3")->count();
@@ -82,7 +82,7 @@ class FicheController extends Controller
         $users = User::where('level', '2')->get();
         $level = session('level');
         $username = session('username');
-        if ($level == 1) {
+        if ($level == 1 || $level == 6) {
             $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "1")->where('assignedto', $username)->get();
@@ -109,7 +109,7 @@ class FicheController extends Controller
         $users = User::all();
         $level = session('level');
         $username = session('username');
-        if ($level == 1) {
+        if ($level == 1 || $level == 6) {
             $fiches =  Fiche::where('nivo', "2")->orderBy('id', 'desc')->get();
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "2")->where('assignedto', $username)->get();
@@ -127,7 +127,7 @@ class FicheController extends Controller
         $level = session('level');
         $users = User::all();
         $username = session('username');
-        if ($level == 1) {
+        if ($level == 1 || $level == 6) {
             $fiches =  Fiche::where('nivo', "3")->orderBy('id', 'desc')->get();
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "3")->where('assignedto', $username)->get();
@@ -145,7 +145,7 @@ class FicheController extends Controller
         $users = User::where('level', '2')->get();
         $level = session('level');
         $username = session('username');
-        if ($level == 1) {
+        if ($level == 1 || $level == 6) {
             $fiches =  Fiche::where('nivo', "4")->orderBy('id', 'desc')->get();
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "4")->where('assignedto', $username)->get();
