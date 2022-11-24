@@ -13,7 +13,16 @@
 
         @if ($fiche->nivo == 5)
             <div class="alert alert-info" role="alert">
-                {{ $fiche->message }}
+                <p>{{ $fiche->message }}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        @if ($fiche->com_dsi != null)
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <p>{{ $fiche->motif_dsi }}</p>
+                <p>{{ $fiche->com_dsi }}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 

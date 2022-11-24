@@ -13,8 +13,17 @@
 
         @if ($fiche->nivo == 5)
             <div class="alert alert-info" role="alert">
-               Commentaire : {{ $fiche->message }}
-            </div>
+                <p>{{ $fiche->message }}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+        @endif
+
+        @if ($fiche->com_dsi != null)
+            <div class="alert alert-warning" role="alert">
+                <p>Motif : {{ $fiche->motif_dsi }}</p>
+                <p>{{ $fiche->com_dsi }}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
         @endif
 
         <div class="card col mb-3">

@@ -68,7 +68,7 @@
                                 }
                                 
                                 if ($status == 'Cloturé') {
-                                    $color_status = 'bg-success text-dark';
+                                    $color_status = 'bg-success text-white';
                                 } elseif ($status == 'Rejeté') {
                                     $color_status = 'bg-danger text-white';
                                 } else {

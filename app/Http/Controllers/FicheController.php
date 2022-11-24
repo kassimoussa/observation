@@ -50,7 +50,9 @@ class FicheController extends Controller
             $rsf = Fiche::where('nivo', "5")->count();
         } elseif ($level == 5) { 
              $fiches =  Fiche::where('trans', "dsi")->get();
-             return view('5.index', compact('fiches'));
+             $dsif = Fiche::where('trans', "dsi")->count();
+             $dgf = Fiche::where('trans', "dg")->count();
+             return view('5.index', compact('fiches', 'dsif', 'dgf'));
         }
 
 
@@ -167,6 +169,22 @@ class FicheController extends Controller
         $fiches =  Fiche::where('nivo', "5")->get();
 
         return view('1.listes.rs_fiches', compact('fiches', 'users'));
+    }
+
+    public function dsi_fiches()
+    {
+        $level = session('level');
+
+        $fiches = Fiche::where('trans', 'dsi')->get();
+        return view('5.dsi_fiches', compact('fiches'));
+    }
+
+    public function dg_fiches()
+    {
+        $level = session('level');
+
+        $fiches = Fiche::where('trans', 'dg')->get();
+        return view('5.dg_fiches', compact('fiches'));
     }
 
 

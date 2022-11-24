@@ -66,7 +66,11 @@
 
                 <div class="card mb-2">
                     <h4 class="card-header text-center bg-dark text-white">Document </h4>
-                    <div class="card-body"> 
+                    <div class="card-body">
+                        <div class="d-flex justify-content-end mb-2">
+                            <button type="button" name="add_document" class="btn btn-dark fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#new_document">Ajouter</button>
+                        </div>
                         <table class="table table-bordered border-dark table-sm table-hover" id="">
                             <thead class="  table-dark text-center">
                                 <th>N° Document</th>
@@ -91,9 +95,25 @@
                                                     class="btn btn-transparent btn-xs" data-bs-toggle="tooltip"
                                                     data-bs-placement="bottom" title="Télécharger le document">
                                                     <i class="fas fa-download "></i>
-                                                </a> 
+                                                </a>
                                             </td>
-                                        </tr> 
+                                        </tr>
+                                        <div class="modal fade" id="{{ $modaln }}" tabindex="-1"
+                                            aria-labelledby="voirtoutrTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-fullscreen modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header ">
+                                                        <button type="button" class="btn btn-primary fw-bold"
+                                                            data-bs-dismiss="modal">Fermer</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <iframe height="900px" width="1000px"
+                                                            src="{{ asset($document->path) }}" frameborder="0"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         @php
                                             $cnt = $cnt + 1;
                                             $modaln = 'vdir' . $cnt;
@@ -124,7 +144,7 @@
                                             <div class="form-group control-label mb-3 ">
                                                 <label class="control-label">Documents <span
                                                         class="text-danger">*</span></label>
-                                                <input class="form-control" type="file" name="files[]" accept=".pdf" id="formFile"
+                                                <input class="form-control" type="file" name="files[]" id="formFile"
                                                     multiple>
                                             </div>
 
@@ -205,21 +225,20 @@
                             <div class="card-body">
                                 <div class="mb-2 d-flex justify-content-between">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="avis_nv3"
-                                            id="nv3_ok" value="OK"
+                                        <input class="form-check-input" type="radio" name="avis_nv3" id="nv3_ok"
+                                            value="OK"
                                             @if ($fiche->avis_nv3 == 'OK') checked  @else disabled @endif>
                                         <label class="form-check-label" for="nv3_ok">Favorable</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="avis_nv3"
-                                            id="nv3_no" value="NO"
+                                        <input class="form-check-input" type="radio" name="avis_nv3" id="nv3_no"
+                                            value="NO"
                                             @if ($fiche->avis_nv3 == 'NO') checked  @else disabled @endif>
                                         <label class="form-check-label" for="nv3_no">Défavorable</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="avis_nv3"
-                                            id="nv3_can" value="Annulé"
-                                            @if ($fiche->avis_nv3 == 'Annulé') checked @else disabled @endif>
+                                        <input class="form-check-input" type="radio" name="avis_nv3" id="nv3_can"
+                                            value="Annulé" @if ($fiche->avis_nv3 == 'Annulé') checked @else disabled @endif>
                                         <label class="form-check-label" for="nv3_can">Annulé</label>
                                     </div>
                                 </div>
@@ -246,8 +265,7 @@
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="status" id="rej"
-                                            value="Rejeté"
-                                            @if ($fiche->status == 'Rejeté') checked @else disabled @endif>
+                                            value="Rejeté" @if ($fiche->status == 'Rejeté') checked @else disabled @endif>
                                         <label class="form-check-label" for="rej">Rejeté</label>
                                     </div>
                                 </div>

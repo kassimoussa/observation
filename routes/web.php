@@ -50,6 +50,8 @@ Route::group(['middleware' => ['logged']], function () {
         Route::get('/nv3-fiches-list', [FicheController::class, 'nv3_fiches']);
         Route::get('/dc-fiches-list', [FicheController::class, 'dc_fiches']);
         Route::get('/rs-fiches-list', [FicheController::class, 'rs_fiches']);
+        Route::get('/dsi-fiches-list', [FicheController::class, 'dsi_fiches']);
+        Route::get('/dg-fiches-list', [FicheController::class, 'dg_fiches']);
         Route::get('/resendto', [FicheController::class, 'resendto']);
     });
 

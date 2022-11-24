@@ -36,5 +36,7 @@ class Fiche extends Model
         'trans',
         'resendto',
         'message',
+        'motif_dsi',
+        'com_dsi',
     ];  
 }
