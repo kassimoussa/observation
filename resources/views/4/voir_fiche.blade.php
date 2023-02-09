@@ -197,10 +197,14 @@
             </div>
         </div>
 
+        <form action="{{ url('fiches/update_nv3', $fiche) }}" method="post" class="d-inline">
+            @csrf
+            @method('PUT')
+
         <div class="card  mb-3">
             <h4 class="card-header text-center bg-dark text-white">Observation </h4>
             <div class="card-body">
-                <textarea class="form-control textarea" aria-label="With textarea" name="obs_nv1" readonly> {{ $fiche->obs_nv1 }}</textarea>
+                <textarea class="form-control textarea" aria-label="With textarea" name="obs_nv1" > {{ $fiche->obs_nv1 }}</textarea>
             </div>
         </div>
 
@@ -224,12 +228,12 @@
                                 <div class="mb-2 d-flex justify-content-between">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="avis_nv2" id="nv2_ok"
-                                            value="OK" @if ($fiche->avis_nv2 == 'OK') checked @else disabled @endif>
+                                            value="OK" @if ($fiche->avis_nv2 == 'OK') checked @else  @endif>
                                         <label class="form-check-label" for="nv2_ok">Favorable</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="avis_nv2" id="nv2_no"
-                                            value="NO" @if ($fiche->avis_nv2 == 'NO') checked @else disabled @endif>
+                                            value="NO" @if ($fiche->avis_nv2 == 'NO') checked @else  @endif>
                                         <label class="form-check-label" for="nv2_no">Défavorable</label>
                                     </div>
                                 </div>
@@ -242,9 +246,7 @@
             </div>
         </div>
 
-        <form action="{{ url('fiches/update_nv3', $fiche) }}" method="post" class="d-inline">
-            @csrf
-            @method('PUT')
+        
             <div class="card  mb-4">
                 <div class="card-header bg-dark">
                     <div class="row justify-content-center">
