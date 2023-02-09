@@ -85,7 +85,15 @@
                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Voir la fiche ">
                                                 <i class="fas fa-eye"></i> Voir la fiche
                                             </a>
-                                            @if (session('level') == '1')
+                                            @if (session('level') == 3 || session('level') == 4)
+                                                <button type="button" class="btn btn-link dropdown-item"
+                                                    data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">
+                                                    <i class="fas fa-share-alt" data-bs-toggle="tooltip"
+                                                        data-bs-placement="bottom" title="Réassigner"></i>
+                                                    Assigner
+                                                </button>
+                                            @endif
+                                            @if (session('level') == '1' || session('level') == '4')
                                                 <a href="{{ url('fiches/edit', $fiche) }}"
                                                     class="btn btn-link dropdown-item" data-bs-toggle="tooltip"
                                                     data-bs-placement="bottom" title="Modifier la fiche ">
@@ -97,14 +105,6 @@
                                                     <i class="fas fa-trash-alt" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" title="Supprimer la fiche "></i>
                                                     Supprimer la fiche
-                                                </button>
-                                            @endif
-                                            @if (session('level') == 3 || session('level') == 4)
-                                                <button type="button" class="btn btn-link dropdown-item"
-                                                    data-bs-toggle="modal" data-bs-target="#{{ $reassignermodal }}">
-                                                    <i class="fas fa-share-alt" data-bs-toggle="tooltip"
-                                                        data-bs-placement="bottom" title="Réassigner"></i>
-                                                    Assigner
                                                 </button>
                                             @endif
                                         </div>
