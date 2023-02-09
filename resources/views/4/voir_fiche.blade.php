@@ -270,7 +270,7 @@
                                 <div class="card-body">
                                     <div class="mb-2 d-flex justify-content-between">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="avis_nv3" required
+                                            <input class="form-check-input" type="radio" name="avis_nv3"  
                                                 id="nv3_ok" value="OK"
                                                 @if ($fiche->avis_nv3 == 'OK') checked  @else   @endif>
                                             <label class="form-check-label" for="nv3_ok">Favorable</label>
@@ -335,6 +335,7 @@
                     <div class="d-flex justify-content-center ">
                         <button class="btn btn-primary fw-bold me-4" type="submit">Enregistrer</button>
                         <button type="reset" class="btn btn-outline-danger  fw-bold">Annuler</button>
+                        {{-- <input type="text" name="niveau" value="2" hidden> --}}
                     </div>
                 </div>
             </div>

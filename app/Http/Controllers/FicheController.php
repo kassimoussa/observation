@@ -36,23 +36,23 @@ class FicheController extends Controller
             $nv3f = Fiche::where('nivo', "3")->where('assignedto', $username)->count();
             $dcf = Fiche::where('nivo', "4")->where('assignedto', $username)->count();
             $rsf = Fiche::where('nivo', "5")->count();
-        } elseif ($level == 3) { 
+        } elseif ($level == 3) {
             $nf = Fiche::where('nivo', "1")->count();
             $nv2f = Fiche::where('nivo', "2")->count();
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
             $rsf = Fiche::where('nivo', "5")->count();
-        } elseif ($level == 4) { 
+        } elseif ($level == 4) {
             $nf = Fiche::where('nivo', "1")->count();
             $nv2f = Fiche::where('nivo', "2")->whereNotNull('avis_nv2')->count();
             $nv3f = Fiche::where('nivo', "3")->count();
             $dcf = Fiche::where('nivo', "4")->count();
             $rsf = Fiche::where('nivo', "5")->count();
-        } elseif ($level == 5) { 
-             $fiches =  Fiche::where('trans', "dsi")->get();
-             $dsif = Fiche::where('trans', "dsi")->count();
-             $dgf = Fiche::where('trans', "dg")->count();
-             return view('5.index', compact('fiches', 'dsif', 'dgf'));
+        } elseif ($level == 5) {
+            $fiches =  Fiche::where('trans', "dsi")->get();
+            $dsif = Fiche::where('trans', "dsi")->count();
+            $dgf = Fiche::where('trans', "dg")->count();
+            return view('5.index', compact('fiches', 'dsif', 'dgf'));
         }
 
 
@@ -88,9 +88,9 @@ class FicheController extends Controller
             $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
         } elseif ($level == 2) {
             $fiches =  Fiche::where('nivo', "1")->where('assignedto', $username)->get();
-        } elseif ($level == 3) { 
+        } elseif ($level == 3) {
             $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
-        } elseif ($level == 4) { 
+        } elseif ($level == 4) {
             $fiches =  Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
         }
 
@@ -135,7 +135,7 @@ class FicheController extends Controller
             $fiches =  Fiche::where('nivo', "3")->where('assignedto', $username)->get();
         } elseif ($level == 3) {
             $fiches =  Fiche::where('nivo', "3")->get();
-        }elseif ($level == 4) {
+        } elseif ($level == 4) {
             $fiches =  Fiche::where('nivo', "3")->get();
         }
 
@@ -157,7 +157,7 @@ class FicheController extends Controller
             $fiches =  Fiche::where('nivo', "4")->get();
         } elseif ($level == 5) {
             $fiches =  Fiche::where('nivo', "4")->get();
-        } 
+        }
 
         return view('1.listes.dc_fiches', compact('fiches', 'users'));
     }
@@ -309,7 +309,7 @@ class FicheController extends Controller
         ]);
         /* $fiche->update(['status' => $request->new_password]); */
         return back()->with('success', 'Modification réussie');
-    } 
+    }
     public function update_nv2_cds(Request $request, Fiche $fiche)
     {
         $fiche->update([
@@ -324,13 +324,26 @@ class FicheController extends Controller
 
     public function update_nv3(Request $request, Fiche $fiche)
     {
-        $fiche->update([
-            'status' => $request->status,
-            'avis_nv3' => $request->avis_nv3,
-            'obs_nv3' => $request->obs_nv3,
-            'date_nv3' => Carbon::now(),
-            'nivo' => "3",
-        ]);
+        if ($fiche->nivo == "1") {
+            $fiche->update([
+                'avis_nv2' => $request->avis_nv2,
+                'obs_nv2' => $request->obs_nv2,
+                'date_nv2' => Carbon::now(),
+                'status' => $request->status,
+                'avis_nv3' => $request->avis_nv3,
+                'obs_nv3' => $request->obs_nv3,
+                'date_nv3' => Carbon::now(),
+                'nivo' => "2",
+            ]);
+        } else {
+            $fiche->update([
+                'status' => $request->status,
+                'avis_nv3' => $request->avis_nv3,
+                'obs_nv3' => $request->obs_nv3,
+                'date_nv3' => Carbon::now(),
+                'nivo' => "3",
+            ]);
+        }
         /* $fiche->update(['status' => $request->new_password]); */
         return back()->with('success', 'Modification réussie');
     }
@@ -339,10 +352,10 @@ class FicheController extends Controller
     {
         $trans = $request->trans;
 
-        $date = "date_".$trans;
+        $date = "date_" . $trans;
 
-        $fiche->update([  
-            'trans' => $trans ,
+        $fiche->update([
+            'trans' => $trans,
             $date => Carbon::now(),
             'nivo' => "4",
         ]);
@@ -352,7 +365,7 @@ class FicheController extends Controller
 
     public function reassigner(Request $request, Fiche $fiche)
     {
-        $fiche->update([ 
+        $fiche->update([
             'avis_nv2' => null,
             'obs_nv2' => null,
             'avis_nv3' => null,
