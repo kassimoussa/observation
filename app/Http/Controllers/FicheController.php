@@ -337,6 +337,9 @@ class FicheController extends Controller
             ]);
         } else {
             $fiche->update([
+                'avis_nv2' => $request->avis_nv2,
+                'obs_nv2' => $request->obs_nv2,
+                'date_nv2' => Carbon::now(),
                 'status' => $request->status,
                 'avis_nv3' => $request->avis_nv3,
                 'obs_nv3' => $request->obs_nv3,
