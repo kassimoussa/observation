@@ -81,7 +81,7 @@ class FicheController extends Controller
 
     public function new_fiches()
     {
-        $users = User::where('level', '2')->get();
+        $users = User::where('level', '2')->orWhere('level', '3')->get();
         $level = session('level');
         $username = session('username');
         if ($level == 1 || $level == 6) {
