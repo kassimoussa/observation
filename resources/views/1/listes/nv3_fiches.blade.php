@@ -29,8 +29,11 @@
                     <th>N° Compte</th>
                     <th>Type</th>
                     <th>Service</th>
+                    <th>Montant (DJF)</th>
                     <th>Avis</th>
                     <th>TO</th>
+                    <th>Creation</th>
+                    <th>Dernière modif</th>
                     {{-- <th>Status</th> --}}
                     <th>Action</th>
                 </thead>
@@ -72,8 +75,11 @@
                                 <td>{{ $fiche->num_compte }}</td>
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
+                                <td>{{ $fiche->mont_facture }}</td>
                                 <td class="bg-{{ $bg }} text-{{ $txt }}">{{ $avis }}</td>
                                 <td>{{ strtoupper($fiche->assignedto) }}</td>
+                                <td>{{ $fiche->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $fiche->updated_at->format('d/m/Y') }}</td>
                                 {{--  <td>{{ $fiche->status }} </td> --}}
                                 <td class="td-actions ">
                                     <div class="dropdown dropstart">

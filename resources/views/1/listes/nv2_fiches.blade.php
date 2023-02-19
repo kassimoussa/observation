@@ -29,12 +29,15 @@
                     <th>N° Compte</th>
                     <th>Type</th>
                     <th>Service</th>
+                    <th>Montant (DJF)</th>
                     {{-- @if (session('level') == '3')
                         <th>Commenté</th>
                     @endif --}}
                     <th>Avis</th>
                     <th>Status</th>
                     <th>TO</th>
+                    <th>Creation</th>
+                    <th>Dernière modif</th>
                     {{-- <th>Status</th> --}}
                     <th>Action</th>
                 </thead>
@@ -93,6 +96,9 @@
                                 <td>{{ $fiche->num_compte }}</td>
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
+                                <td>{{ $fiche->mont_facture }}</td>
+                                <td>{{ $fiche->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $fiche->updated_at->format('d/m/Y') }}</td>
                                 {{-- @if (session('level') == '3')
                                     <td>{{ strtoupper($commente) }}</td>
                                 @endif --}}
