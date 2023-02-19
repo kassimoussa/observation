@@ -20,8 +20,11 @@
 
         <div class=" mb-3">
 
+            <x-export-btn i="1" />  
+
             <table class="table table-bordered table-striped hover table-sm align-middle newfiches ">
-                <thead class="bg-dark text-white text-center">
+              
+              <thead class="bg-dark text-white text-center  align-middle ">
                     <th>Date</th>
                     <th>N° Fiche</th>
                     <th>Nom du client</th>

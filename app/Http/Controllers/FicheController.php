@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FicheExport;
 use App\Models\Document;
 use App\Models\Fiche;
 use App\Models\Fiche2;
@@ -10,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use PDF;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FicheController extends Controller
 {
@@ -686,5 +688,31 @@ class FicheController extends Controller
             'novembre',
             'decembre',
         ));
+    }
+
+    public function export_fiche( $i)
+    {
+        $x = $i;
+
+        if ($x == "1")
+        {
+            $fiches = Fiche::where('nivo', "1")->orderBy('id', 'desc')->get();
+        } elseif ($x == "2")
+        {
+            $fiches = Fiche::where('nivo', "2")->orderBy('id', 'desc')->get();
+        } elseif ($x == "3")
+        {
+            $fiches = Fiche::where('nivo', "3")->orderBy('id', 'desc')->get();
+        } elseif ($x == "4")
+        {
+            $fiches = Fiche::where('nivo', "4")->orderBy('id', 'desc')->get();
+        } elseif ($x == "5")
+        {
+            $fiches = Fiche::where('nivo', "5")->orderBy('id', 'desc')->get();
+        } 
+
+        $export = new FicheExport($fiches, $i);
+
+        return Excel::download($export, 'listeFichesNiveau' . $i . '.xlsx');
     }
 }

@@ -67,6 +67,7 @@ Route::group(['middleware' => ['logged']], function () {
     Route::get('download/{document}', [DocumentController::class, 'download']);
     Route::delete('delete_document/{document}', [DocumentController::class, 'destroy']);
     Route::get('stats', [FicheController::class, 'stats']);
+    Route::post('export_fiche/{i}', [FicheController::class, 'export_fiche']);
 
 });
  

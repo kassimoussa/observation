@@ -20,8 +20,11 @@
 
         <div class=" mb-3">
 
+            <x-export-btn i="2" /> 
+            
+
             <table class="table table-bordered table-striped hover table-sm align-middle newfiches ">
-                <thead class="bg-dark text-white text-center">
+                <thead class="bg-dark text-white text-center  align-middle">
                     <th>Date</th>
                     <th>N° Fiche</th>
                     <th>Nom du client</th>
@@ -30,9 +33,6 @@
                     <th>Type</th>
                     <th>Service</th>
                     <th>Montant (DJF)</th>
-                    {{-- @if (session('level') == '3')
-                        <th>Commenté</th>
-                    @endif --}}
                     <th>Avis</th>
                     <th>Status</th>
                     <th>TO</th>
@@ -97,14 +97,11 @@
                                 <td>{{ $fiche->type }}</td>
                                 <td>{{ $fiche->service }}</td>
                                 <td>{{ $fiche->mont_facture }}</td>
-                                <td>{{ $fiche->created_at->format('d/m/Y') }}</td>
-                                <td>{{ $fiche->updated_at->format('d/m/Y') }}</td>
-                                {{-- @if (session('level') == '3')
-                                    <td>{{ strtoupper($commente) }}</td>
-                                @endif --}}
                                 <td class="{{ $color_avis }}">{{ $avis }}</td>
                                 <td class="{{ $color_status }}">{{ $status }}</td>
                                 <td>{{ strtoupper($fiche->assignedto) }}</td>
+                                <td>{{ $fiche->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $fiche->updated_at->format('d/m/Y') }}</td>
                                 {{--  <td>{{ $fiche->status }} </td> --}}
                                 <td class="td-actions ">
                                     <div class="dropdown dropstart">
